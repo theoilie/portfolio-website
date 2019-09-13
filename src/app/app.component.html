@@ -1,21 +1,51 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<!-- Hide the loading animation completely after half a second (to allow it to fade away smoothly first) -->
+<ng-container *ngIf="!loadedHalfSecondAfter">
+  <div [ngClass]="loaded ? 'loading__container-hidden' : 'loading__container'">
+    <div class="loading__img-container">
+      <img src="../assets/loading.gif" />
+    </div>
+  </div>
+</ng-container>
+
+<!-- Modal for viewing projects -->
+<div id="modal-container" class="modal-container__hidden">
+  <div
+    id="modal-overlay"
+    (click)="destroyModal()"
+    class="modal-overlay__hidden"
+  ></div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+
+<!-- Home section -->
+<app-home (viewProjectsClicked)="selectProjectsDiv()"></app-home>
+
+<!-- Navigation -->
+<app-nav
+  [loaded]="loadedHalfSecondAfter"
+  [homeHeight]="0"
+  [projectsHeight]="desktopHomePosition"
+  [referencesHeight]="desktopHomePosition + desktopProjectsPosition"
+  [resumeHeight]="
+    desktopHomePosition + desktopProjectsPosition + desktopReferencesPosition
+  "
+  [contactHeight]="
+    desktopHomePosition +
+    desktopProjectsPosition +
+    desktopReferencesPosition +
+    desktopResumePosition
+  "
+></app-nav>
+
+<!-- Projects section -->
+<app-projects></app-projects>
+
+<!-- References section -->
+<app-references></app-references>
+
+<!-- Resume section -->
+<app-resume></app-resume>
+
+<!-- Contact section -->
+<app-contact></app-contact>
 
 <router-outlet></router-outlet>

@@ -1,0 +1,81 @@
+@import "../../shared/variables.less";
+@import "../../shared/styles.less";
+
+.main-container {
+  .main-container();
+}
+
+.project-icons-container {
+  width: 100%;
+  .flexbox();
+  .flexbox-dir-col();
+  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+
+  .responsiveMin(@screen-sizes[small], {.flexbox-dir-row() ;});
+
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.project-icon {
+  position: relative;
+  // Calculate dimensions for:
+  // 1 icon per row on mobile, 2 on small+ screens, 3 on medium+
+  --spacing: 5%;
+  --iconsPerRow: 1;
+  .responsiveMin(@screen-sizes[small], {--iconsPerRow: 2; height: 200px;});
+  .responsiveMin(@screen-sizes[medium], {height: 240px;});
+  .responsiveMin(@screen-sizes[large], {height: 300px;});
+  .responsiveMin(2000px, {--iconsPerRow: 3;});
+  --freeSpace: calc(100% - (var(--spacing) * (var(--iconsPerRow) - 1)));
+  --calculatedWidth: calc((var(--freeSpace) / var(--iconsPerRow)));
+
+  width: 100%;
+  max-width: calc(100% / var(--iconsPerRow));
+  height: 240px;
+  margin-bottom: 1em;
+
+  flex: 0 1 100%;
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    border: 1px inset transparent;
+    z-index: 1;
+  }
+
+  &__preview {
+    .flexbox();
+    .flexbox-dir-col();
+    justify-content: space-around;
+    align-items: center;
+
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: darken(whitesmoke, 20%);
+
+    // Animate an overlay with additional info when hovering over a card
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+  }
+  &__preview:hover,
+  &__preview:active {
+    opacity: 1;
+  }
+
+  &__preview__name {
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  &__preview__open {
+    border: 2px solid red;
+    padding: 4px 16px;
+    cursor: pointer;
+  }
+}

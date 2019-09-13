@@ -1,0 +1,57 @@
+<section id="references" class="section-even" #referencesSection>
+  <div class="main-container">
+    <div class="title-container">
+      <span class="title-1">References</span>
+      <div class="title-1-underline"></div>
+    </div>
+
+    <div class="relative-container" #relativeContainer>
+      <!-- Rotate smoothly by displaying each recommendation on top of each other and changing their opacities -->
+      <ng-container *ngFor="let reference of references; index as i">
+        <div
+          #referenceDiv
+          [ngClass]="
+            isReferenceActive(i)
+              ? 'references-container__active'
+              : 'references-container__inactive'
+          "
+        >
+          <span class="current-recommender-container">
+            <div class="current-reference">
+              <div class="col-3 round-reference-pic">
+                <img
+                  src="{{ reference.imageUri }}"
+                  (load)="onImageLoaded($event)"
+                />
+              </div>
+            </div>
+          </span>
+          <div class="reference-name">
+            {{ reference.name }} <br />{{ reference.title }}
+          </div>
+
+          <!-- Text of the current recommendation -->
+          <div class="reference-contents">
+            {{ reference.recommendationText }}
+          </div>
+        </div>
+      </ng-container>
+    </div>
+
+    <!-- Icons to choose which recommendation to display -->
+    <div class="references-parent-block">
+      <div class="references-row-container">
+        <span class="references-row">
+          <ng-container *ngFor="let reference of references; index as i">
+            <div
+              class="square-reference-pic"
+              (click)="selectReferenceAndPause(i)"
+            >
+              <img src="{{ reference.imageUri }}" />
+            </div>
+          </ng-container>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>

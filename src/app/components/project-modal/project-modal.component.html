@@ -1,0 +1,31 @@
+<div [ngClass]="selectedProject ? 'modal__active' : 'modal__inactive'">
+  <span class="modal-controls__close" (click)="close()">X</span>
+  <div class="modal-main-container">
+    <!-- Controls -->
+    <div class="modal-controls">
+      <span class="modal-controls__previous" (click)="selectPrevious()">
+        <
+      </span>
+      <span class="modal-controls__next" (click)="selectNext()">
+        >
+      </span>
+    </div>
+
+    <!-- Content -->
+    <div class="modal-content">
+      <div class="modal-content__title">{{ selectedProject.name }}</div>
+      <div class="modal-content__caption">
+        {{ selectedProject.caption }}
+      </div>
+      <div class="modal-content__body">
+        <div class="modal-content__tech-stack">
+          Tech Stack: {{ selectedProject.techStack }}
+        </div>
+        <div
+          class="modal-content__description"
+          [innerHTML]="selectedProject.description"
+        ></div>
+      </div>
+    </div>
+  </div>
+</div>

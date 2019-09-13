@@ -1,0 +1,170 @@
+// Mobile-first screen sizes
+@screen-sizes: {
+  extra-small: 400px; // min-width
+  small: 600px; // min-width
+  medium: 768px; // min-width
+  large: 992px; // min-width
+  extra-large: 1200px; // min-width
+};
+@screen-sizes-height: {
+  small: 450px; // min-height
+  medium: 600px; // min-height
+  large: 800px; // min-height
+};
+.responsiveMin(@minWidth; @rules) {
+  @media only screen and (min-width: @minWidth) {
+    @rules();
+  }
+}
+.responsiveMax(@maxWidth; @rules) {
+  @media only screen and (max-width: @maxWidth) {
+    @rules();
+  }
+}
+.responsiveMinHeight(@minHeight; @rules) {
+  @media only screen and (min-height: @minHeight) {
+    @rules();
+  }
+}
+
+// Use 12 columns for responsiveness
+.generate-columns(@n, @i: 1) when (@i =< @n) {
+  .col-@{i} {
+    width: 100%;
+
+    .responsiveMin(
+      @screen-sizes[small],
+      {width: (@i * 100% / @n) ;}
+    ) !important;
+  }
+  .generate-columns(@n, (@i + 1));
+}
+.generate-columns(5);
+
+.clearfix {
+  &:after {
+    content: " ";
+    display: block;
+    font-size: 0;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+}
+.flexbox {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+.flexbox-inline {
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: -webkit-inline-flex;
+  display: flex;
+}
+.flexbox-dir(@direction: row) {
+  & when (@direction = row-reverse) {
+    -webkit-box-direction: reverse;
+    -webkit-box-orient: horizontal;
+    -moz-box-direction: reverse;
+    -moz-box-orient: horizontal;
+  }
+  & when (@direction = column) {
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -moz-box-direction: normal;
+    -moz-box-orient: vertical;
+  }
+  & when (@direction = column-reverse) {
+    -webkit-box-direction: reverse;
+    -webkit-box-orient: vertical;
+    -moz-box-direction: reverse;
+    -moz-box-orient: vertical;
+  }
+  & when (@direction = row) {
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -moz-box-orient: horizontal;
+  }
+
+  -webkit-flex-direction: @direction;
+  -ms-flex-direction: @direction;
+  flex-direction: @direction;
+}
+.flexbox-dir-row {
+  .flexbox-dir();
+}
+.flexbox-dir-col {
+  .flexbox-dir(column);
+}
+.row {
+  .clearfix();
+
+  display: block;
+  height: auto;
+  .responsiveMin(@screen-sizes[small], {.flexbox() ;});
+}
+
+.main-container() {
+  overflow: hidden;
+  margin-left: 1%;
+  margin-right: 1%;
+  padding-top: 10%;
+  padding-bottom: 10%;
+  .responsiveMin(
+    @screen-sizes[small],
+    {padding-top: 5%; padding-bottom: 5%; margin-left: 10%; margin-right: 10%;}
+  );
+  .responsiveMin(
+    @screen-sizes[large],
+    {padding-top: 3%; padding-bottom: 3%; margin-left: 13%; margin-right: 13%;}
+  );
+  .responsiveMin(
+    @screen-sizes[extra-large],
+    {margin-left: 20%; margin-right: 20%;}
+  );
+}
+
+// Bound container widths based on screen size
+.container-bounds() {
+  .responsiveMax(@screen-sizes[extra-small], {max-width: 570px;});
+  .responsiveMin(@screen-sizes[small], {max-width: 570px;});
+  .responsiveMin(@screen-sizes[medium], {max-width: 720px;});
+  .responsiveMin(@screen-sizes[large], {max-width: 960px;});
+  .responsiveMin(@screen-sizes[extra-large], {max-width: 1170px;});
+}
+.container,
+.container-padded {
+  width: 100%;
+  .container-bounds();
+}
+.container-padded(@padding-left: 2em, @padding-right: 2em,
+                  @margin-left: auto, @margin-right: auto) {
+  width: 100%;
+  padding-left: @padding-left;
+  padding-right: @padding-right;
+  margin-left: @margin-left;
+  margin-right: @margin-right;
+}
+
+/** Start one-off style tags **/
+
+// Only display on extra-small and small screen sizes
+.display-small-only {
+  .responsiveMin(@screen-sizes[small], {display: none;});
+}
+
+// Only display screen sizes that are medium or higher (not small or extra-small)
+.hide-small-only {
+  .responsiveMax(@screen-sizes[small], {display: none;});
+}
+
+// Borders
+.solid-bottom-border {
+  border-bottom-style: inset;
+  border-top: 1px;
+}
+
+/** End one-off style tags **/

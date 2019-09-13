@@ -1,0 +1,146 @@
+@import "variables.less";
+
+// Local copies of publicly hosted fonts
+/* latin-ext */
+@font-face {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Raleway"), local("Raleway-Regular"),
+    url(../../assets/s/raleway/v14/1Ptug8zYS_SKggPNyC0IT4ttDfA.woff2)
+      format("woff2");
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB,
+    U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Raleway"), local("Raleway-Regular"),
+    url(../../assets/s/raleway/v14/1Ptug8zYS_SKggPNyC0IT4ttDfA.woff2)
+      format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+// Include borders and padding in all height/width calculations
+* {
+  box-sizing: border-box;
+  font-family: "Raleway", sans-serif;
+  color: #444649;
+  text-decoration: none;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  overflow-x: hidden;
+}
+// Workaround for smooth scrolling on iOS (can't use height: 100% on body selector)
+#body-wrapper {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+}
+
+/** Start simple one-off style tags **/
+
+// Use 100% width/height
+.w-100 {
+  width: 100%;
+}
+.h-100 {
+  height: 100%;
+}
+.h-92 {
+  height: 92%;
+}
+.h-8 {
+  height: 8%;
+}
+
+// Use a slightly different background color for odd and even sections
+.section-odd {
+  background-color: #f5f5f5;
+}
+
+.section-even {
+  background-color: #ffffff;
+}
+
+// Center content/text
+.center-content {
+  align-content: center;
+}
+.center-text {
+  text-align: center;
+}
+
+// Float left/right
+.float-left {
+  float: left;
+}
+.float-right {
+  float: right;
+}
+
+// Choose a background color
+.bg-floralwhite {
+  background-color: floralwhite;
+}
+.bg-black {
+  background-color: black;
+}
+.bg-aqua {
+  background-color: aqua;
+}
+.bg-blue {
+  background-color: blue;
+}
+
+// Headings
+.title-container {
+  .flexbox();
+  .flexbox-dir(column);
+  align-items: center;
+}
+.title-1 {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 25pt;
+  .responsiveMin(@screen-sizes[small], {font-size: 30pt;});
+}
+.title-1-underline {
+  width: 70px;
+  height: 4px;
+  margin: 10px 0 50px 0;
+  background: black;
+
+  .responsiveMin(
+    @screen-sizes[small],
+    {margin: 10px 0 50px 0; line-height: 18pt;}
+  );
+}
+.title-2 {
+  font-style: normal;
+  font-weight: bold;
+  font-style: oblique;
+  font-size: 15pt;
+  .responsiveMin(@screen-sizes[small], {font-size: 20pt;});
+}
+
+/** End simple one-off style tags **/
+
+// Project modal styles
+.link {
+  text-decoration: lightblue;
+  text-decoration-line: underline;
+}

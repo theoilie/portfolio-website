@@ -1,0 +1,47 @@
+<section id="resume" class="section-odd" #resumeSection>
+  <div class="main-container">
+    <div class="title-container">
+      <span class="title-1">Resume</span>
+      <div class="title-1-underline"></div>
+    </div>
+
+    <div class="resume-container">
+      <span class="education">
+        <span class="title-2">Education</span>
+        <div>University of Southern California</div>
+        <div>B.A., Cognitive Science</div>
+        <div>Computer Science Minor</div>
+      </span>
+
+      <span class="title-2">Professional Experience</span>
+      <span #controlItems class="control-items">
+        <ng-container *ngFor="let entry of entries; index as i">
+          <span
+            [ngClass]="
+              currentEntry.index == i
+                ? 'control-item__active'
+                : 'control-item__inactive'
+            "
+            (click)="onClick(i)"
+            >{{ entry.company }}
+          </span>
+        </ng-container>
+      </span>
+
+      <div class="relative-container" #relativeContainer>
+        <ng-container *ngFor="let entry of entries; index as i">
+          <div
+            [ngClass]="
+              currentEntry.index == i ? 'display__active' : 'display__inactive'
+            "
+          >
+            <app-resume-entry
+              #resumeEntry
+              [roles]="entry.roles"
+            ></app-resume-entry>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</section>

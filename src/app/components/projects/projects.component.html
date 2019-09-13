@@ -1,0 +1,35 @@
+<section id="projects" class="section-odd" #projectsSection>
+  <div class="main-container">
+    <div class="title-container">
+      <span class="title-1">Projects</span>
+      <div class="title-1-underline"></div>
+    </div>
+
+    <!-- Icons to select a project to view -->
+    <ng-container>
+      <div class="project-icons-container">
+        <ng-container *ngFor="let project of projects; index as i">
+          <span class="project-icon">
+            <span
+              class="project-icon__preview"
+              (mouseenter)="setHovering(i)"
+              (mouseleave)="setHovering(-1)"
+              (mousedown)="setHovering(i)"
+            >
+              <div class="project-icon__preview__name">
+                {{ project.name }}
+              </div>
+              <div
+                class="project-icon__preview__open"
+                (click)="selectProject(i)"
+              >
+                View Details
+              </div>
+            </span>
+            <img class="project-icon__img" src="{{ project.coverIcon }}" />
+          </span>
+        </ng-container>
+      </div>
+    </ng-container>
+  </div>
+</section>

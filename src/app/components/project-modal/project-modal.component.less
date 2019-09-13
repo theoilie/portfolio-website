@@ -1,0 +1,110 @@
+@import "../../shared/variables.less";
+@import "../../shared/styles.less";
+
+.modal {
+  &__active,
+  &__inactive {
+    .flexbox();
+    .flexbox-dir-col();
+    background-color: white;
+    z-index: 9999999;
+    position: relative;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+
+    transition-delay: 2s;
+    transition: all 3s ease-in-out;
+  }
+
+  &__active {
+    transform: scale(1);
+    pointer-events: initial;
+
+    // Display a full-screen modal for mobile devices
+    width: 100%;
+    height: 100%;
+
+    // Display a centered modal on desktop and larger devices
+    .responsiveMin(
+        @screen-sizes[small],
+        //{width: 80%; margin: 2% 10% 0 10%; height: auto;}
+          {height: calc(100% - 4%) ; width: calc(100% - 20%) ; margin: 2% 10%;}
+      )
+      ;;
+  }
+  &__inactive {
+    width: 0;
+    height: 0;
+  }
+}
+
+.modal-main-container {
+  padding: 5%;
+  height: 100%;
+}
+
+.modal-controls {
+  .flexbox();
+  .flexbox-dir-row();
+  width: 100%;
+  justify-content: space-between;
+
+  &__previous,
+  &__next {
+    cursor: pointer;
+    color: orange;
+    font-size: 20pt;
+  }
+  &__previous {
+    align-self: flex-start;
+  }
+  &__next {
+    align-self: flex-end;
+  }
+
+  &__close {
+    cursor: pointer;
+    align-self: flex-end;
+    padding: 1%;
+    margin-right: 3px;
+    .responsiveMin(@screen-sizes[small], {margin-right: 0;});
+    font-weight: bold;
+  }
+}
+
+.modal-content {
+  .flexbox();
+  .flexbox-dir-col();
+  height: 90%;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  &__title {
+    font-weight: bold;
+    font-size: 16pt;
+    text-align: center;
+  }
+
+  &__caption {
+    font-size: 14pt;
+    text-align: center;
+    color: gray;
+    margin-bottom: 3%;
+  }
+
+  &__body {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  }
+
+  &__tech-stack {
+    font-size: 10pt;
+    margin-bottom: 2%;
+    font-style: italic;
+  }
+
+  &__description {
+    font-size: 12pt;
+  }
+}

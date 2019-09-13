@@ -1,0 +1,14 @@
+<div #container>
+  <ng-container *ngFor="let role of roles">
+    <span class="title">
+      {{ role.title }}
+    </span>
+    <div
+      class="description__container"
+      *ngFor="let description of role.descriptions"
+    >
+      <span class="description__bullet-point">‣</span>
+      <span class="description__content">{{ description }}</span>
+    </div>
+  </ng-container>
+</div>

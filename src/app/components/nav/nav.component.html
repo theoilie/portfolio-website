@@ -1,0 +1,67 @@
+<!-- Mobile/small-screen navbar -->
+<div
+  class="navbar-mobile bg-color-nav"
+  [class.navbar-mobile__sticky]="sticky"
+  #mobileNav
+>
+  <a
+    class="nav-mobile-name"
+    [class.nav-mobile-name__sticky]="sticky"
+    routerLink="."
+    fragment="home"
+    (click)="scrollToDiv('home')"
+    >Theo</a
+  >
+
+  <button
+    class="nav-mobile-toggler"
+    [class.mobile-nav-toggler-hidden]="false"
+    [class.nav-mobile-toggler__sticky]="sticky"
+    (click)="toggleMobileNav()"
+  >
+    <span class="nav-mobile-toggler-icon"></span>
+  </button>
+</div>
+
+<!-- Dropdown menu on mobile screens -->
+<div
+  [ngClass]="
+    isMobileNavVisible() ? 'mobile-nav__overlay' : 'mobile-nav__overlay-hidden'
+  "
+>
+  <ul class="mobile-nav-menu" [class.mobile-nav-hidden]="!isMobileNavVisible()">
+    <li *ngFor="let navDiv of navItems">
+      <a
+        class="mobile-nav-link"
+        (click)="scrollToDiv(navDiv)"
+        routerLink="."
+        fragment="{{ navDiv }}"
+      >
+        {{ navDiv | titlecase }}
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- Desktop/large-screen navbar -->
+<div
+  class="navbar-desktop bg-color-nav w-100"
+  id="navbar-theo"
+  [class.navbar-desktop__sticky]="sticky"
+  #desktopStickyNav
+>
+  <span class="control-items">
+    <ng-container *ngFor="let navDiv of navItems">
+      <span
+        [ngClass]="
+          isActive(navDiv) ? 'control-item__active' : 'control-item__inactive'
+        "
+        routerLink="."
+        fragment="{{ navDiv }}"
+        (click)="scrollToDiv(navDiv)"
+      >
+        {{ navDiv | titlecase }}
+      </span>
+    </ng-container>
+  </span>
+</div>
