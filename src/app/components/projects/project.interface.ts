@@ -11,15 +11,28 @@ export const PROJECTS: Project[] = [
     name: "Pycoal Parallel",
     caption: "Python Toolkit",
     coverIcon: "../../../assets/projects/pycoal-parallel.png",
-    techStack: "Python, PyTorch, Docker",
-    description: `COAL started as a capstone project at Oregon Statue University, with the goal of classifying land cover, identifying geographic features such as coal mines, and correlating the features with environmental data sets.
-      Building on the project, NASA JPL would like to use the program to classify petabytes of data collected by its AVIRIS-NG instrument.
-      I am the point of contact for a team of 5 USC students working with a stakeholder from JPL to advance the Pycoal Python toolkit to fulfill NASA's requirements in order to be able to use the program smoothly with their instrument's data.
-      Our focus is on running COAL's algorithms in a distributed fashion on GPUs, which should overcome a current bottleneck that the program has with pixel processing.
-      We are also looking into improving the machine learning algorithms that classify the pixels, as well as running the Dockerized program with a cloud provider like Amazon.
+    techStack: "Python, NumPy, GitHub",
+    description: `
+      <h4>Project Background</h4>
+      The project's primary purpose is to identify coal mines and correlate them with geographic features such as rivers and lakes.
+      It uses hyperspectral imagery to compare the light signature of pixels from hyperspectral images with the known light signature of minerals/coal.
+      <br />
+      The problem is that the program takes a very long time to classify the images (environmental correlation is faster).
+      It took me about 5 days when I first tried to classify an 18GB hyperspectral image file, so our main focus has been on reducing the runtime of that algorithm.
+      <br />
+      <h4>Team Contributions</h4>
+      I currently work as part of a 5-student team on this capstone project, serving as the point of contact between our team and the stakeholder from NASA JPL.
+      We coordinate Agile-style weekly sprint meetings over Slack/WebEx to discuss ways to improve the project and what we've done over the previous week and plan to do in the upcoming week.
+      As a team we've improved the project's quality of life (documentation updates, bug fixes, and code quality improvements) and explored numerous options to speed up the project's mineral classification algorithm.
+      Early results show that we may have sped up the project by up to 300% just by using more efficient NumPy operations and fixing non-optimally-designed portions of the algorithm.
+      We're also continuing to explore using PyTorch and Dask for parallelizing the mineral classification process, as well as using AWS for running it in a distributed fashion.
+      You can view my specific contributions from the link below (it links to the GitHub issues and Pull Requests I've created).
+      
       
       <h4>Source Code</h4>
       The source code can be found <a class="link" href="https://github.com/capstone-coal">here</a>, and more information on COAL can be found <a class="link" href="https://capstone-coal.github.io/">here</a>.
+      <br />
+      For a list of my individual contributions, click <a class="link" href="https://github.com/capstone-coal/pycoal/issues?utf8=%E2%9C%93&q=author%3ALactem+">here</a>
       `
   },
   {
@@ -87,8 +100,7 @@ export const PROJECTS: Project[] = [
     name: "201-scheduler",
     caption: "Collaborative Calendar Website",
     coverIcon: "../../../assets/projects/201-scheduler.png",
-    techStack:
-      "Java (JSPs and Servlets), Apache Spring, HTML/CSS, MongoDB, JavaScript/jQuery, Docker",
+    techStack: "Apache Spring, HTML/CSS, MongoDB, JavaScript/jQuery, Docker",
     description: `
       As a final project for a Java/Web class, I led a group of 3 students through the creation of an idea we came up: a website for clubs and organizations to share calendars, edit them concurrently, and easily view conflicts with other club/organizations' calendars.
       My individual responsibilities included:

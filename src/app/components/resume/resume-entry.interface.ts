@@ -47,7 +47,8 @@ export const RESUME_ENTRIES: ResumeEntry[] = [
         title: "Founder",
         descriptions: [
           "Worked with two students from RIT and USC to develop an application (Java) that runs multiple instances of the same virtual world simultaneously, using Redis for synchronization.",
-          "Created an LLC to handle payments after a previous product generated thousands in profit via PayPal."
+          "Co-created an LLC after my team's product generated over $2,000 in profit.",
+          "Processed 116 payments from 76 customers and dealt with 2 customer disputes via PayPal."
         ]
       }
     ]
@@ -58,7 +59,7 @@ export const RESUME_ENTRIES: ResumeEntry[] = [
       {
         title: "Cloud Software Engineering Intern",
         descriptions: [
-          "Made 7 community contributions (Python) to a cloud software platform called OpenStack (compared to the average of 1.4 contributions per intern in my group).",
+          "Submitted 14 patch sets, resolved 2 bugs related to cloud authentication, and made 5 other open source contributions (Python/OpenStack).",
           "Developed and presented a proof-of-concept library that allows for cross-language compatibility between Intel's GoLang telement agent and Java plugins (JSON-RPC)."
         ]
       }

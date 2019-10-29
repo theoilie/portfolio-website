@@ -6,8 +6,10 @@
   &__inactive {
     .flexbox();
     .flexbox-dir-col();
+    padding-top: 8px;
     background-color: white;
     z-index: 9999999;
+    .responsiveMin(@screen-sizes[small], {width: 3vw; height: 3vw;});
     position: relative;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
     overflow: hidden;
@@ -26,11 +28,10 @@
 
     // Display a centered modal on desktop and larger devices
     .responsiveMin(
-        @screen-sizes[small],
-        //{width: 80%; margin: 2% 10% 0 10%; height: auto;}
-          {height: calc(100% - 4%) ; width: calc(100% - 20%) ; margin: 2% 10%;}
-      )
-      ;;
+      @screen-sizes[small],
+      {height: calc(100% - 6%) ; width: calc(100% - 20%) ; margin: 2% 10% 4% 10%;
+        border-radius: 3%;}
+    );
   }
   &__inactive {
     width: 0;
@@ -38,73 +39,120 @@
   }
 }
 
-.modal-main-container {
-  padding: 5%;
-  height: 100%;
-}
-
 .modal-controls {
   .flexbox();
   .flexbox-dir-row();
-  width: 100%;
   justify-content: space-between;
+  width: 100%;
+  padding-bottom: 8px;
 
-  &__previous,
-  &__next {
-    cursor: pointer;
-    color: orange;
-    font-size: 20pt;
-  }
-  &__previous {
+  &__arrows {
     align-self: flex-start;
-  }
-  &__next {
-    align-self: flex-end;
+
+    &__previous,
+    &__next {
+      color: #2196f3;
+      font-size: 20pt;
+      .responsiveMin(@screen-sizes[small], {transition: color 0.1s ease-in;});
+    }
+    &__previous {
+      align-self: flex-start;
+      margin-left: 1vw;
+      margin-right: 80px;
+    }
+    &__previous:hover,
+    &__next:hover {
+      .responsiveMin(@screen-sizes[small], {cursor: pointer; color: #ffc372;});
+    }
   }
 
   &__close {
-    cursor: pointer;
+    .flexbox();
+    justify-content: center;
+    align-items: center;
     align-self: flex-end;
-    padding: 1%;
-    margin-right: 3px;
-    .responsiveMin(@screen-sizes[small], {margin-right: 0;});
-    font-weight: bold;
+    margin-right: 10px;
+    padding: 3%;
+    width: 4vw;
+    height: 4vw;
+    .responsiveMin(
+      @screen-sizes[small],
+      {padding: 1vw; width: 3vw; height: 3vw;}
+    );
+    .responsiveMin(@screen-sizes[large], {width: 1vw; height: 1vw;});
+    font-weight: lighter;
+    border-radius: 100%;
+    background-color: gainsboro;
+  }
+  &__close:hover {
+    .responsiveMin(
+      @screen-sizes[small],
+      {font-weight: bolder; cursor: pointer; background-color: lighten(
+          gainsboro,
+          10%
+        ) ;}
+    );
+  }
+}
+
+.modal-header {
+  .flexbox();
+  height: fit-content;
+  min-height: 125px;
+  border-bottom: 1px solid rgba(79, 70, 115, 0.15);
+  padding-bottom: 5px;
+  .responsiveMin(@screen-sizes[small], {min-height: 110px;});
+
+  &__icon {
+    margin: 0 10px;
+
+    &__img {
+      height: 100px;
+      width: 100px;
+      border: 1px solid black;
+      border-radius: 4%;
+    }
+  }
+
+  &__textbox {
+    .flexbox();
+    .flexbox-dir-col();
+
+    &__title {
+      font-weight: bold;
+      font-size: 16pt;
+      text-align: left;
+    }
+
+    &__caption {
+      font-size: 14pt;
+      text-align: left;
+      color: gray;
+      margin-bottom: 3%;
+    }
+
+    &__tech-stack {
+      font-size: 10pt;
+      margin-bottom: 2%;
+      font-style: italic;
+    }
   }
 }
 
 .modal-content {
   .flexbox();
   .flexbox-dir-col();
-  height: 90%;
+  height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
-
-  &__title {
-    font-weight: bold;
-    font-size: 16pt;
-    text-align: center;
-  }
-
-  &__caption {
-    font-size: 14pt;
-    text-align: center;
-    color: gray;
-    margin-bottom: 3%;
-  }
 
   &__body {
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-  }
-
-  &__tech-stack {
-    font-size: 10pt;
-    margin-bottom: 2%;
-    font-style: italic;
   }
 
   &__description {
     font-size: 12pt;
+    padding: 5vh;
   }
 }

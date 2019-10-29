@@ -1,31 +1,47 @@
 <div [ngClass]="selectedProject ? 'modal__active' : 'modal__inactive'">
-  <span class="modal-controls__close" (click)="close()">X</span>
-  <div class="modal-main-container">
-    <!-- Controls -->
-    <div class="modal-controls">
-      <span class="modal-controls__previous" (click)="selectPrevious()">
+  <!-- Controls -->
+  <div class="modal-controls">
+    <span class="modal-controls__arrows">
+      <span class="modal-controls__arrows__previous" (click)="selectPrevious()">
         <
       </span>
-      <span class="modal-controls__next" (click)="selectNext()">
+      <span class="modal-controls__arrows__next" (click)="selectNext()">
         >
       </span>
+    </span>
+    <span class="modal-controls__close" (click)="close()">X</span>
+  </div>
+
+  <!-- Header Info -->
+  <div class="modal-header">
+    <div class="modal-header__icon">
+      <img
+        class="modal-header__icon__img"
+        src="{{ selectedProject.coverIcon }}"
+      />
     </div>
 
-    <!-- Content -->
-    <div class="modal-content">
-      <div class="modal-content__title">{{ selectedProject.name }}</div>
-      <div class="modal-content__caption">
+    <div class="modal-header__textbox">
+      <div class="modal-header__textbox__title">
+        {{ selectedProject.name }}
+      </div>
+      <div class="modal-header__textbox__caption">
         {{ selectedProject.caption }}
       </div>
-      <div class="modal-content__body">
-        <div class="modal-content__tech-stack">
-          Tech Stack: {{ selectedProject.techStack }}
-        </div>
-        <div
-          class="modal-content__description"
-          [innerHTML]="selectedProject.description"
-        ></div>
+
+      <div class="modal-header__textbox__tech-stack">
+        {{ selectedProject.techStack }}
       </div>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="modal-content">
+    <div class="modal-content__body">
+      <div
+        class="modal-content__description"
+        [innerHTML]="selectedProject.description"
+      ></div>
     </div>
   </div>
 </div>
