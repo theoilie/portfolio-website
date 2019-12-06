@@ -44,7 +44,11 @@
         <span class="references-row">
           <ng-container *ngFor="let reference of references; index as i">
             <div
-              class="square-reference-pic"
+              [ngClass]="
+                isReferenceActive(i)
+                  ? 'square-reference-pic__active'
+                  : 'square-reference-pic__inactive'
+              "
               (click)="selectReferenceAndPause(i)"
             >
               <img src="{{ reference.imageUri }}" />

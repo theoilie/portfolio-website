@@ -14,7 +14,7 @@ export const REFERENCES: Reference[] = [
   },
   {
     name: "Manipushpak Gupta",
-    title: "Software Intern @ Hyperloop",
+    title: "Former Software Engineering Intern @ Hyperloop",
     recommendationText: `I’ve known Theo for almost a year now and if there’s one thing that I know about him, it’s his competency and dedication. I lived with him over the summer and can vouch for his ability to be consistent. I saw him wake up at the same early time on days when he wasn’t required to, just to work on his projects. We would also have long conversations about technology and startups and I could judge he has a great passion for it during our conversations. He’s also a self-starter. He works on technical projects - like his personal website - on the side when he has time, and recently started to improve his coding skills by doing coding challenges daily. Based on his dedication and competency, Theo would be a great asset and I would recommend working with him to anyone.`,
     imageUri: "assets/mani-gupta.jpeg"
   },
