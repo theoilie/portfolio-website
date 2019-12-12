@@ -35,7 +35,7 @@ export class NavComponent implements OnInit {
   currentDiv: string;
 
   //@ViewChild("desktopStickyNav") desktopNavbar: ElementRef;
-  @ViewChild("mobileNav") mobileNavbar: ElementRef;
+  @ViewChild("mobileNav", {static: false}) mobileNavbar: ElementRef;
 
   constructor(private router: Router) {
     this.navItems = ["home", "projects", "references", "resume", "contact"];

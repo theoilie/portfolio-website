@@ -12,14 +12,14 @@ import { ProjectModalComponent } from "../project-modal/project-modal.component"
 export class ProjectsComponent implements OnInit, Section {
   public projects: Project[] = PROJECTS;
 
-  @ViewChild("projectsSection")
+  @ViewChild("projectsSection", {static: false})
   private projectsSection: ElementRef;
 
   // Dynamically open/close the projects modal
   public selectedProject: Project;
   public hoveredProject: number = -1;
   private currentProjectIndex: number;
-  @ViewChild("projectModal")
+  @ViewChild("projectModal", {static: false})
   private projectModal: ElementRef;
 
   constructor(private modalService: ModalService) {

@@ -30,17 +30,17 @@ export class AppComponent implements AfterViewInit {
   public desktopContactPosition: number = 0;
 
   // Nav is sticky on mobile and thus not included in the home page's height
-  @ViewChild(NavComponent)
+  @ViewChild(NavComponent, {static: false})
   private navDiv: NavComponent;
-  @ViewChild(HomeComponent)
+  @ViewChild(HomeComponent, {static: false})
   private homeDiv: Section;
-  @ViewChild(ProjectsComponent)
+  @ViewChild(ProjectsComponent, {static: false})
   private projectsDiv: Section;
-  @ViewChild(ReferencesComponent)
+  @ViewChild(ReferencesComponent, {static: false})
   private referencesDiv: Section;
-  @ViewChild(ResumeComponent)
+  @ViewChild(ResumeComponent, {static: false})
   private resumeDiv: Section;
-  @ViewChild(ContactComponent)
+  @ViewChild(ContactComponent, {static: false})
   private contactDiv: Section;
 
   public loaded: boolean = false;

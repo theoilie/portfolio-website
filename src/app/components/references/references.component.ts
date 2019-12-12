@@ -22,13 +22,13 @@ export class ReferencesComponent implements OnInit, Section {
   private timer;
   private secondsUntilRotate: number;
   private currentReferenceIndex: number;
-  @ViewChild("referencesSection")
+  @ViewChild("referencesSection", {static: false})
   private referencesSection: ElementRef;
 
   // Change the absolutely-positioned references container height dynamically based on its child's height
-  @ViewChild("relativeContainer")
+  @ViewChild("relativeContainer", {static: false})
   private relativeContainer: ElementRef;
-  @ViewChild("referenceDiv")
+  @ViewChild("referenceDiv", {static: false})
   private referenceDiv: ElementRef;
 
   constructor() {}

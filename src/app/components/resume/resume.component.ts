@@ -18,13 +18,13 @@ import { ResumeEntryComponent } from "./resume-entry/resume-entry.component";
 export class ResumeComponent implements OnInit, Section {
   public entries: ResumeEntry[]; // Make the entries available in the template
   public currentEntry: { index: number; entry: ResumeEntry };
-  @ViewChild("resumeSection")
+  @ViewChild("resumeSection", {static: false})
   private resumeSection: ElementRef;
   // Change the sliding bar dynamically
-  @ViewChild("controlItems")
+  @ViewChild("controlItems", {static: false})
   private controlItems: ElementRef;
   // Change the absolutely-positioned references container height dynamically based on its child's height
-  @ViewChild("relativeContainer")
+  @ViewChild("relativeContainer", {static: false})
   private relativeContainer: ElementRef;
   @ViewChildren("resumeEntry")
   private resumeEntries: QueryList<ResumeEntryComponent>;

@@ -7,7 +7,7 @@ import { Section } from "src/app/shared/section.interface";
   styleUrls: ["./contact.component.less"]
 })
 export class ContactComponent implements OnInit, Section {
-  @ViewChild("contactSection")
+  @ViewChild("contactSection", {static: false})
   private contactSection: ElementRef;
 
   constructor() {}

@@ -18,7 +18,7 @@ import { ResumeRole } from "../resume-entry.interface";
 export class ResumeEntryComponent {
   @Input()
   public roles: ResumeRole[];
-  @ViewChild("container")
+  @ViewChild("container", {static: false})
   private container: ElementRef;
 
   public getHeight(): number {

@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit, Section {
   @Output()
   public viewProjectsClicked: EventEmitter<void> = new EventEmitter<void>();
 
-  @ViewChild("homeSection")
+  @ViewChild("homeSection", {static: false})
   private homeSection: ElementRef;
 
   constructor() {}
