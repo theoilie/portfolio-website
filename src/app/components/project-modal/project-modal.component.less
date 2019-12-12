@@ -50,11 +50,12 @@
   .flexbox-dir-row();
   justify-content: space-between;
   width: 100%;
-  padding-bottom: 8px;
+  padding: 5px 10px;
 
   &__arrows__previous,
   &__arrows__next,
   &__close {
+    margin: 0;
     .flexbox();
     justify-content: center;
     align-items: center;
@@ -86,8 +87,6 @@
     .flexbox-dir-row();
     justify-content: space-between;
     width: 100px;
-    margin-left: 10px;
-    align-self: flex-start;
 
     &__previous {
       background-image: url("../../../assets/chevron_left.png");
@@ -100,11 +99,6 @@
       background-repeat: no-repeat;
     }
   }
-
-  &__close {
-    align-self: flex-end;
-    margin-right: 10px;
-  }
 }
 
 .modal-header {
@@ -112,7 +106,7 @@
   height: fit-content;
   min-height: 125px;
   border-bottom: 1px solid rgba(79, 70, 115, 0.15);
-  padding-bottom: 5px;
+  padding: 5px 0;
   .responsiveMin(@screen-sizes[small], {min-height: 110px;});
 
   &__icon {
@@ -165,6 +159,6 @@
 
   &__description {
     font-size: 12pt;
-    padding: 5vh;
+    padding: 3vh;
   }
 }
