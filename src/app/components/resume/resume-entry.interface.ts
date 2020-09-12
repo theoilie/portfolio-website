@@ -10,6 +10,19 @@ export interface ResumeRole {
 
 export const RESUME_ENTRIES: ResumeEntry[] = [
   {
+    company: "Amazon",
+    roles: [
+      {
+        title: "Software Development Engineer Intern",
+        descriptions: [
+          "Made a feature for highly customizable social media campaigns from start to finish, using AWS, React, and Java, as well as Cypress for UI tests.",
+          "Led a technical design review with senior developers, comparing 6 ways of implementing large scale data storage & retrieval for my feature.",
+          "Increased the quality of a production codebase by resolving 300+ linting errors across 188 files."
+        ]
+      }
+    ]
+  },
+  {
     company: "Vista",
     roles: [
       {
@@ -29,18 +42,6 @@ export const RESUME_ENTRIES: ResumeEntry[] = [
     ]
   },
   {
-    company: "iCode",
-    roles: [
-      {
-        title: "Mentor",
-        descriptions: [
-          "Served as the sole instructor for 5 sessions of a JobCorps class on Python.",
-          "Taught basic programming concepts (loops, functions, etc...) to underprivilged adults aged 20-25."
-        ]
-      }
-    ]
-  },
-  {
     company: "TilieFish",
     roles: [
       {
@@ -48,7 +49,7 @@ export const RESUME_ENTRIES: ResumeEntry[] = [
         descriptions: [
           "Worked with two students from RIT and USC to develop an application (Java) that runs multiple instances of the same virtual world simultaneously, using Redis for synchronization.",
           "Co-created an LLC after my team's product generated over $2,000 in profit.",
-          "Processed 116 payments from 76 customers and dealt with 2 customer disputes via PayPal."
+          "Processed 116 payments from 76 customers and resolved 2 customer disputes through PayPal."
         ]
       }
     ]
