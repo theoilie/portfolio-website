@@ -8,6 +8,51 @@ export interface Project {
 
 export const PROJECTS: Project[] = [
   {
+    name: "HeroEngineer.com",
+    caption: "Course Website",
+    coverIcon: "../../../assets/projects/heroengineer.png",
+    techStack: "React, Java, MongoDB, Docker, Linux, Nginx",
+    description: `
+      <h4>Project Background</h4>
+      As the website for the Advanced Writing for Engineers class at USC, this project serves as a learning environment for students.
+      It provides a fun experience based around the concept of heroes in engineering, using assignments and live team forming and messaging features to explore what it means to be ethical and heroic as an engineer.
+      The professor can create assignments on the fly and decide which class sections are allowed to view/submit the assignment or to receive their grades for each assignment.
+      So far the website has supported about 50 students over the course of 2 semesters, including this current semester.
+
+      <br /><br />
+      Some key features for students are:
+      <br />
+      * account and avatar creation / customization
+      <br />
+      * live, in-class assignments
+      <br />
+      * quizzes and quests system that allows for rapid feedback on correct/incorrect answers
+      <br />
+      * team formation with classmates based on shared interests that can be expressed through the website in a forum-post style
+      <br />
+      * file upload for assignments that require it
+
+      <br /><br />
+      And some key features for professors are:
+      <br />
+      * class sections and rosters -- only allow verified students to sign up, and divide them into classes
+      <br />
+      * automatic quiz grading, as well as manual grading with an option to provide feedback for subjective assignments (for example, questions that require paragraph answers rather than True/False answers)
+      <br />
+      * highly customizable quests, quizzes, and in-class writing prompts that can be hidden or displayed on a per-class basis and can be given any number of questions and answers
+
+      <h4>Technical Work</h4>
+      Using the professor's guidance on feature requests over the course of hundreds of emails, I made this project from start to finish using React for the frontend and Java Spring for the backend, with MongoDB for data storage.
+      I designed the UI/UX and improved it based on professor and student feedback. I also purchased and installed an SSL certificate on a dedicated Linux machine. I use Nginx to route traffic and host both HeroEngineer.com and theoilie.com on the same server.
+      This project has involved bug fixes and administrative work such as taking database backups and deploying updates. I use Docker and tmux to minimize disruptions to students and to keep administrative work organized.
+
+      <h4>Source Code</h4>
+      Since this project involves student grades, I keep the code private to try to minimize the chance of any tech-savvy engineering students finding bugs to exploit.
+      You're welcome to visit <a class="link" href="https://heroengineer.com">HeroEngineer.com</a> and login with the email "test@usc.edu" and the password "password" to see the site in action.
+      Note that this is a student site that only supports desktops. Mobile support is planned for the future.
+      `
+  },
+  {
     name: "Pycoal Parallel",
     caption: "Python Toolkit",
     coverIcon: "../../../assets/projects/pycoal-parallel.png",
@@ -27,8 +72,8 @@ export const PROJECTS: Project[] = [
       Early results show that we may have sped up the project by up to 300% just by using more efficient NumPy operations and fixing non-optimally-designed portions of the algorithm.
       We're also continuing to explore using PyTorch and Dask for parallelizing the mineral classification process, as well as using AWS for running it in a distributed fashion.
       You can view my specific contributions from the link below (it links to the GitHub issues and Pull Requests I've created).
-      
-      
+
+
       <h4>Source Code</h4>
       The source code can be found <a class="link" href="https://github.com/capstone-coal">here</a>, and more information on COAL can be found <a class="link" href="https://capstone-coal.github.io/">here</a>.
       <br />
@@ -40,7 +85,7 @@ export const PROJECTS: Project[] = [
     caption: "Personal Website",
     coverIcon: "../../../assets/projects/personal-site.png",
     techStack:
-      "Angular 7, JavaScript/TypeScript, HTML5/CSS3, Linux, Apache Web Server",
+      "Angular 8, JavaScript/TypeScript, HTML5/CSS3, Linux, Nginx",
     description: `
       I built this portfolio website with the 3 main purposes of:
       <div style="padding-left: 3%;">
@@ -51,13 +96,13 @@ export const PROJECTS: Project[] = [
       3. Having a front-end project to show off
       </div>
       <br />
-      I used Angular 7 with Less CSS.
-      I also rented a Linux machine to deploy the site with Apache Web Server.
+      I originally used Angular 7 with Less CSS, and I rented a Linux machine to install an SSL certificate and deploy the site with Apache Web Server.
+      I've since updated to Angular 8 and use Nginx to make both theodoreilie.com and theoilie.com (optionally with a "www." before it) work with HTTP and HTTPS (they're all configured to redirect to theoilie.com using HTTPS).
       The site is made mobile-first and responsive, with the goal of supporting as many modern devices and browsers as possible.
-      I've tested it on iPhone 7, iPhone X, iPad, and screen sizes 11 inches through 27 inches -- plus on Safari, Chrome, and FireFox. 
+      I've tested it on iPhone 7, iPhone X, iPad, and screen sizes 11 inches through 27 inches -- plus on Safari, Chrome, and FireFox.
 
       <h4>Source Code</h4>
-      Since this website is partially meant to be a demonstration of my front-end abilities, it would make sense to have the source code available.
+      Since this website is partially meant to be a demonstration of my front-end abilities, the source code is publicly available.
       You can view it <a class="link" href="https://github.com/Lactem/portfolio-website">here</a>.
       `
   },
@@ -74,7 +119,7 @@ export const PROJECTS: Project[] = [
 
       <h4>Data Collection</h4>
       Using the APIs provided by IEX and AlphaVantage, I developed a portion of the bot to collect minute-by-minute data from multiple sources, remove any minutes with missing information, and store it all in MongoDB.
-      
+
       <h4>Data Analysis</h4>
       The bot originally tried to learn from the data and fit it into models.
       Since people have been trying that approach for decades with little success, we decided to instead use a collection of well-known performance indicators.
@@ -84,7 +129,7 @@ export const PROJECTS: Project[] = [
       I used Google's Protocol Buffers mechanism to establish a way for the multiple instances of analysis servers to send standardized messages (the results of their analysis) to the proxy.
       This way, the analysis from many different symbols could be available in one program.
       Each analysis server knows which symbols to collect based on a central Redis server that it communicates to. This also lets the proxy know how many / which analysis servers are online.
-      
+
       <h4>Trading</h4>
       The trading portion was primarily developed by someone else.
       It utilizes TD Ameritrade's public API to query an account, allowing the bot to buy and sell without any human intervention.
@@ -159,7 +204,7 @@ export const PROJECTS: Project[] = [
       <br />
       * Utily code for tasks such as sending messages and saving/loading item and 3D map information to/from files
       </div>
-      
+
       <h4>TNT Run</h4>
       As a demonstration of the framework, I coded a mini-game called TNT Run.
       Players in this game would run around on exploding layers of ground and the last player standing won.
