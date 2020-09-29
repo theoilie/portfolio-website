@@ -9,22 +9,24 @@
     <ng-container>
       <div class="project-icons-container">
         <ng-container *ngFor="let project of projects; index as i">
-          <span class="project-icon">
+          <span id="{{ project?.cssId }}" class="project-icon">
             <span
               class="project-icon__preview"
               (mouseenter)="setHovering(i)"
               (mouseleave)="setHovering(-1)"
               (mousedown)="setHovering(i)"
             >
-              <div class="project-icon__preview__name">
+              <span class="project-icon__preview__gradient">
+                <span class="project-icon__preview__name">
                 {{ project.name }}
-              </div>
-              <div
+              </span>
+              <span
                 class="project-icon__preview__open"
                 (click)="selectProject(i)"
               >
-                View Details
-              </div>
+                View
+              </span>
+              </span>
             </span>
             <img class="project-icon__img" src="{{ project.coverIcon }}" />
           </span>

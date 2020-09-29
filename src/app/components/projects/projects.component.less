@@ -7,55 +7,46 @@
 
 .project-icons-container {
   width: 100%;
-  .flexbox();
-  .flexbox-dir-col();
-  flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
+  display: block;
 
-  .responsiveMin(@screen-sizes[small], {.flexbox-dir-row() ;});
-
-  align-items: center;
-  justify-content: flex-start;
+  // 1 column on mobile, 2 columns on small to large screens, and 3 columns on large screens
+  --column-count: 1;
+  .responsiveMin(@screen-sizes[small], {--column-count: 2;});
+  .responsiveMin(@screen-sizes[extra-large], {--column-count: 3;});
+  column-count: var(--column-count);
+  -moz-column-count: var(--column-count);
+  -webkit-column-count: var(--column-count);
 }
 
 .project-icon {
   position: relative;
-  // Calculate dimensions for:
-  // 1 icon per row on mobile, 2 on small+ screens, 3 on medium+
-  --spacing: 5%;
-  --iconsPerRow: 1;
-  .responsiveMin(@screen-sizes[small], {--iconsPerRow: 2; height: 200px;});
-  .responsiveMin(@screen-sizes[medium], {height: 240px;});
-  .responsiveMin(@screen-sizes[large], {height: 300px;});
-  .responsiveMin(2000px, {--iconsPerRow: 3;});
-  --freeSpace: calc(100% - (var(--spacing) * (var(--iconsPerRow) - 1)));
-  --calculatedWidth: calc((var(--freeSpace) / var(--iconsPerRow)));
+  display: inline-block;
 
   width: 100%;
-  max-width: calc(100% / var(--iconsPerRow));
-  height: 240px;
-  margin-bottom: 1em;
-
-  flex: 0 1 100%;
+  height: 100%;
 
   &__img {
     width: 100%;
     height: 100%;
-    border: 1px inset transparent;
+    margin-bottom: 10px;
+    border-radius: 30px;
     z-index: 1;
   }
 
   &__preview {
     .flexbox();
-    .flexbox-dir-col();
+    //.flexbox-dir-col();
+    .flexbox-dir-row();
     justify-content: space-around;
-    align-items: center;
+    //align-items: center;
+    align-items: flex-end;
 
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: calc(100% - 10px);
     z-index: 2;
-    background-color: darken(whitesmoke, 20%);
+    //background: radial-gradient(rgba(0, 0, 0, 0.45253852) 0%, rgba(0, 0, 0, 0.3) 60%, rgba(33, 150, 243, 0.6) 100%);
+    border-radius: 30px;
 
     // Animate an overlay with additional info when hovering over a card
     opacity: 0;
@@ -66,25 +57,57 @@
     opacity: 1;
   }
 
+  &__preview__gradient {
+    .flexbox();
+    .flexbox-dir-row();
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.99) 100%);
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    padding: 10px;
+  }
+
   &__preview__name {
-    font-weight: bold;
+    font-weight: bolder;
     letter-spacing: 0.1em;
     font-size: 18px;
     text-align: center;
+    color: white;
+    width: 200px;
+    height: 50px;
+    margin-right: 10px;
+    .flexbox();
+    align-items: center;
   }
 
   &__preview__open {
     border: 1px solid white;
     border-radius: 5px;
     padding: 6px 18px;
-    font-weight: bolder;
+    font-weight: bold;
     color: white;
     letter-spacing: 2px;
-    transition: letter-spacing 0.1s ease-in;
+    width: 100px;
+    height: 33px;
+    text-align: center;
   }
   &__preview__open:hover {
-    //font-weight: lighter;
     cursor: pointer;
-    letter-spacing: 1px;
+    border: 2px solid white;
+    font-weight: bolder;
+  }
+}
+
+/*
+/* Styles specific to each project
+*/
+
+#game-dispenser-project {
+  // The GameDispenser project icon doesn't have a background by default
+  .project-icon__img {
+    background-color: steelblue;
   }
 }

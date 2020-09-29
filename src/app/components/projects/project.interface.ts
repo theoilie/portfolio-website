@@ -3,6 +3,7 @@ export interface Project {
   caption: string;
   coverIcon: string;
   techStack: string;
+  cssId?: string;
   description: string;
 }
 
@@ -55,23 +56,33 @@ export const PROJECTS: Project[] = [
   {
     name: "Pycoal Parallel",
     caption: "Python Toolkit",
-    coverIcon: "../../../assets/projects/pycoal-parallel.png",
+    coverIcon: "../../../assets/projects/pycoal-parallel.jpg",
     techStack: "Python, NumPy, GitHub",
     description: `
       <h4>Project Background</h4>
-      The project's primary purpose is to identify coal mines and correlate them with geographic features such as rivers and lakes.
-      It uses hyperspectral imagery to compare the light signature of pixels from hyperspectral images with the known light signature of minerals/coal.
+      Pycoal Parallel identifies coal mines and correlates them with geographic features such as rivers and lakes in order to understand how coal mining can negatively impact water supplies.
+      It takes images from NASA instruments, which are used in airplanes to collect information-rich "hyperspectral" images of the land below, and then it classifies any minerals in these images based on their light signatures.
       <br />
-      The problem is that the program takes a very long time to classify the images (environmental correlation is faster).
-      It took me about 5 days when I first tried to classify an 18GB hyperspectral image file, so our main focus has been on reducing the runtime of that algorithm.
+      <h4>Individual Contributions</h4>
+      These are the contributions that I performed most or all of the work for:
       <br />
+      * Created functionality to visualize the proximity of dams and reservoirs to dangerous sludge produced by mining (for coal or other natural resources)
+      <br />
+      * Resolved over 40 static code analysis issues
+      <br />
+      * Improved documentation and open source accessibility, including fixing and improving unit tests
+      <br />
+      * Generated mineral-classified examples. This involved finding geographic areas of interest from NASA archives and then running algorithms, some of which take days to complete
+
       <h4>Team Contributions</h4>
-      I currently work as part of a 5-student team on this capstone project, serving as the point of contact between our team and the stakeholder from NASA JPL.
-      We coordinate Agile-style weekly sprint meetings over Slack/WebEx to discuss ways to improve the project and what we've done over the previous week and plan to do in the upcoming week.
-      As a team we've improved the project's quality of life (documentation updates, bug fixes, and code quality improvements) and explored numerous options to speed up the project's mineral classification algorithm.
-      Early results show that we may have sped up the project by up to 300% just by using more efficient NumPy operations and fixing non-optimally-designed portions of the algorithm.
-      We're also continuing to explore using PyTorch and Dask for parallelizing the mineral classification process, as well as using AWS for running it in a distributed fashion.
-      You can view my specific contributions from the link below (it links to the GitHub issues and Pull Requests I've created).
+      I worked as part of a 5-student team on this capstone project, serving as the point of contact between our team and the stakeholder from NASA JPL.
+      We coordinated Agile-style weekly sprint meetings over Slack and WebEx.
+      Our group worked together in dividing up work, resolving blockers, and checking each other's contributions for accuracy and quality.
+      Some significant project contributions that I was tangentially a part of (but did not primarily produce) are:
+      <br />
+      * Reduced classification algorithm runtime from 45 minutes to 6 minutes, partially by using more efficient NumPy operations
+      <br />
+      * Increased the breadth of support for algorithm acceleration based on the hardware available (CPU acceleration, GPU acceleration, CUDA support, etc.)
 
 
       <h4>Source Code</h4>
@@ -192,6 +203,7 @@ export const PROJECTS: Project[] = [
     caption: "Minigame Framework",
     coverIcon: "../../../assets/projects/gamedispenser.png",
     techStack: "Java, MySQL, Code Documentation/JavaDocs",
+    cssId: "game-dispenser-project",
     description: `
       <h4>Framework</h4>
       My earliest coding projects were for the popular open-world game Minecraft.
