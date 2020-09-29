@@ -116,8 +116,10 @@
   &__active,
   &__inactive {
     vertical-align: middle;
-    width: 15%;
-    height: 15%;
+    width: 20%;
+    height: 20%;
+    .responsiveMin(@screen-sizes[small], {width: 15%; height: 15%;});
+    .responsiveMin(@screen-sizes[extra-large], {width: 10%; height: 10%;});
   }
 
   &__active > img:hover,
