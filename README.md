@@ -1,5 +1,5 @@
 # Portfolio Website
-This website (http://theoilie.com) showcases some of my favorite projects, as well as professional experience and recommendations.
+This website (https://theoilie.com) showcases some of my favorite projects, as well as professional experience and recommendations.
 
 ## Updating LinkedIn Badge
 A note to myself -- I use a modified version of the hardcoded elements/styles that the LinkedIn badge script returns.  
