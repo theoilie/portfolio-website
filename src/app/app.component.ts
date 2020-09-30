@@ -4,30 +4,29 @@ import {
   ElementRef,
   HostListener,
   ViewChild
-} from "@angular/core";
-import { Router } from "@angular/router";
-import { NavComponent } from "./components/nav/nav.component";
-import { ResumeComponent } from "./components/resume/resume.component";
-import { ReferencesComponent } from "./components/references/references.component";
-import { Section } from "./shared/section.interface";
-import { ContactComponent } from "./components/contact/contact.component";
-import { HomeComponent } from "./components/home/home.component";
-import { ProjectsComponent } from "./components/projects/projects.component";
-import { Project } from "./components/projects/project.interface";
-import { ModalService } from "./services/modal.service";
+} from '@angular/core';
+import { Router } from '@angular/router';
+import { NavComponent } from './components/nav/nav.component';
+import { ResumeComponent } from './components/resume/resume.component';
+import { ReferencesComponent } from './components/references/references.component';
+import { Section } from './shared/section.interface';
+import { ContactComponent } from './components/contact/contact.component';
+import { HomeComponent } from './components/home/home.component';
+import { ProjectsComponent } from './components/projects/projects.component';
+import { ModalService } from './services/modal.service';
 
 @Component({
-  selector: "app-root",
-  templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.less"]
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.less']
 })
 export class AppComponent implements AfterViewInit {
-  public mobileNavPosition: number = 0;
-  public desktopHomePosition: number = 0;
-  public desktopProjectsPosition: number = 0;
-  public desktopReferencesPosition: number = 0;
-  public desktopResumePosition: number = 0;
-  public desktopContactPosition: number = 0;
+  public mobileNavPosition = 0;
+  public desktopHomePosition = 0;
+  public desktopProjectsPosition = 0;
+  public desktopReferencesPosition = 0;
+  public desktopResumePosition = 0;
+  public desktopContactPosition = 0;
 
   // Nav is sticky on mobile and thus not included in the home page's height
   @ViewChild(NavComponent, {static: false})
@@ -43,8 +42,8 @@ export class AppComponent implements AfterViewInit {
   @ViewChild(ContactComponent, {static: false})
   private contactDiv: Section;
 
-  public loaded: boolean = false;
-  public loadedHalfSecondAfter: boolean = false;
+  public loaded = false;
+  public loadedHalfSecondAfter = false;
 
   private currentDiv: Section;
 
@@ -55,7 +54,7 @@ export class AppComponent implements AfterViewInit {
   }
 
   ngOnInit() {
-    window.addEventListener("scroll", this.onScroll, true);
+    window.addEventListener('scroll', this.onScroll, true);
 
     // Display a loading animation for a couple seconds
     setTimeout(() => {
@@ -67,15 +66,15 @@ export class AppComponent implements AfterViewInit {
 
     // Prevent scrolling on mobile while the page is loading
     document
-      .querySelector("#body-wrapper")
-      .addEventListener("touchstart", this.onTouchStart, true);
+      .querySelector('#body-wrapper')
+      .addEventListener('touchstart', this.onTouchStart, true);
   }
 
   ngOnDestroy() {
-    window.removeEventListener("scroll", this.onScroll, true);
+    window.removeEventListener('scroll', this.onScroll, true);
     document
-      .querySelector("#body-wrapper")
-      .removeEventListener("touchstart", this.onTouchStart, true);
+      .querySelector('#body-wrapper')
+      .removeEventListener('touchstart', this.onTouchStart, true);
   }
 
   ngAfterViewInit() {
@@ -90,7 +89,7 @@ export class AppComponent implements AfterViewInit {
   }
 
   // Recalculate positions when the browser is resized
-  @HostListener("window:resize", ["$event"])
+  @HostListener('window:resize', ['$event'])
   onResize(event: any) {
     this.ngAfterViewInit();
   }
@@ -120,7 +119,7 @@ export class AppComponent implements AfterViewInit {
           this.desktopReferencesPosition +
           this.desktopResumePosition
     ) {
-      this.selectDiv(this.contactDiv, "#contact");
+      this.selectDiv(this.contactDiv, '#contact');
     } else if (
       eventNumber >=
       this.desktopHomePosition -
@@ -128,30 +127,30 @@ export class AppComponent implements AfterViewInit {
         this.desktopProjectsPosition +
         this.desktopReferencesPosition
     ) {
-      this.selectDiv(this.resumeDiv, "#resume");
+      this.selectDiv(this.resumeDiv, '#resume');
     } else if (
       eventNumber >=
       this.desktopHomePosition -
         this.mobileNavPosition +
         this.desktopProjectsPosition
     ) {
-      this.selectDiv(this.referencesDiv, "#references");
+      this.selectDiv(this.referencesDiv, '#references');
     } else if (
       eventNumber >=
       this.desktopHomePosition - this.mobileNavPosition
     ) {
-      this.selectDiv(this.projectsDiv, "#projects");
+      this.selectDiv(this.projectsDiv, '#projects');
     } else if (eventNumber < this.desktopHomePosition && eventNumber >= 0) {
-      this.selectDiv(this.homeDiv, "#home");
+      this.selectDiv(this.homeDiv, '#home');
     }
   };
 
   // Call exit functionality for the previous section and enter functionality for the next section
   private selectDiv(newDiv: Section, newDivFragment: string): void {
-    if (this.currentDiv && this.currentDiv != newDiv) {
+    if (this.currentDiv && this.currentDiv !== newDiv) {
       this.currentDiv.onExit();
     }
-    if (!this.currentDiv || this.currentDiv != newDiv) {
+    if (!this.currentDiv || this.currentDiv !== newDiv) {
       this.currentDiv = newDiv;
       this.currentDiv.onEnter();
       this.router.navigateByUrl(newDivFragment);
@@ -161,6 +160,6 @@ export class AppComponent implements AfterViewInit {
   }
 
   public selectProjectsDiv(): void {
-    this.navDiv.scrollToDiv("projects");
+    this.navDiv.scrollToDiv('projects');
   }
 }

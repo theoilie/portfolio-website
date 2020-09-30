@@ -6,16 +6,19 @@
   &__inactive {
     .flexbox();
     .flexbox-dir-col();
+
     padding-top: 8px;
     background-color: white;
     z-index: 9999999;
-    .responsiveMin(@screen-sizes[small], {width: 3vw; height: 3vw;});
+    .responsiveMin(@screen-sizes[small], {
+      width: 3vw;
+      height: 3vw;
+    });
+
     position: relative;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
     overflow: hidden;
-
-    transition-delay: 2s;
-    transition: all 3s ease-in-out;
+    transition: all 3s ease-in-out 2s;
   }
 
   &__active {
@@ -28,17 +31,20 @@
     border-radius: 10px;
 
     // Display a centered modal on desktop and larger devices
-    .responsiveMin(
-      @screen-sizes[small],
-      {
-        height: 75vh; width: 75vw; top: 12.5vh; left: 12.5vw;}
-    );
-    .responsiveMin(
-        @screen-sizes[extra-large],
-    {
-      height: 50vh; width: 50vw; top: 25vh; left: 25vw;}
-    );
+    .responsiveMin(@screen-sizes[small], {
+      height: 75vh;
+      width: 75vw;
+      top: 12.5vh;
+      left: 12.5vw;
+    });
+    .responsiveMin(@screen-sizes[extra-large], {
+      height: 50vh;
+      width: 50vw;
+      top: 25vh;
+      left: 25vw;
+    });
   }
+
   &__inactive {
     width: 0;
     height: 0;
@@ -48,6 +54,7 @@
 .modal-controls {
   .flexbox();
   .flexbox-dir-row();
+
   justify-content: space-between;
   width: 100%;
   padding: 5px 10px;
@@ -57,14 +64,16 @@
   &__close {
     margin: 0;
     .flexbox();
+
     justify-content: center;
     align-items: center;
     width: 22px;
     height: 22px;
-    .responsiveMin(
-      @screen-sizes[extra-large],
-      {width: 27px; height: 27px;}
-    );
+    .responsiveMin(@screen-sizes[extra-large], {
+      width: 27px;
+      height: 27px;
+    });
+
     font-weight: lighter;
     border-radius: 100%;
     background-color: gainsboro;
@@ -73,18 +82,18 @@
   &__arrows__previous:hover,
   &__arrows__next:hover,
   &__close:hover {
-    .responsiveMin(
-      @screen-sizes[small],
-      {font-weight: bolder; cursor: pointer; background-color: lighten(
-          gainsboro,
-          10%
-        ) ;}
-    );
+    .responsiveMin(@screen-sizes[small], {
+      font-weight: bolder;
+      cursor: pointer;
+      background-color: lighten(gainsboro,
+      10%);
+    });
   }
 
   &__arrows {
     .flexbox();
     .flexbox-dir-row();
+
     justify-content: space-between;
     width: 100px;
 
@@ -93,6 +102,7 @@
       background-position: center;
       background-repeat: no-repeat;
     }
+
     &__next {
       background-image: url("../../../assets/chevron_right.png");
       background-position: center;
@@ -103,11 +113,14 @@
 
 .modal-header {
   .flexbox();
+
   height: fit-content;
   min-height: 125px;
   border-bottom: 1px solid rgba(79, 70, 115, 0.15);
   padding: 5px 0;
-  .responsiveMin(@screen-sizes[small], {min-height: 110px;});
+  .responsiveMin(@screen-sizes[small], {
+    min-height: 110px;
+  });
 
   &__icon {
     margin: 0 10px;
@@ -148,6 +161,7 @@
 .modal-content {
   .flexbox();
   .flexbox-dir-col();
+
   height: 100%;
   overflow-x: hidden;
   overflow-y: auto;

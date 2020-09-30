@@ -1,12 +1,11 @@
-import { Component, OnInit } from "@angular/core";
-import { ModalService } from "src/app/services/modal.service";
-import { Project } from "../projects/project.interface";
-import { ProjectsComponent } from "../projects/projects.component";
+import { Component, OnInit } from '@angular/core';
+import { ModalService } from 'src/app/services/modal.service';
+import { Project } from '../projects/project.interface';
 
 @Component({
-  selector: "app-project-modal",
-  templateUrl: "./project-modal.component.html",
-  styleUrls: ["./project-modal.component.less"]
+  selector: 'app-project-modal',
+  templateUrl: './project-modal.component.html',
+  styleUrls: ['./project-modal.component.less']
 })
 export class ProjectModalComponent implements OnInit {
   public selectedProject: Project;

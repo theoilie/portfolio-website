@@ -1,13 +1,13 @@
-import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
-import { Section } from "src/app/shared/section.interface";
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Section } from 'src/app/shared/section.interface';
 
 @Component({
-  selector: "app-contact",
-  templateUrl: "./contact.component.html",
-  styleUrls: ["./contact.component.less"]
+  selector: 'app-contact',
+  templateUrl: './contact.component.html',
+  styleUrls: ['./contact.component.less']
 })
 export class ContactComponent implements OnInit, Section {
-  @ViewChild("contactSection", {static: false})
+  @ViewChild('contactSection', {static: false})
   private contactSection: ElementRef;
 
   constructor() {}

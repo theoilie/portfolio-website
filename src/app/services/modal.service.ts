@@ -1,24 +1,24 @@
-import { Injectable } from "@angular/core";
-import { DomService } from "./dom.service";
-import { Project } from "../components/projects/project.interface";
-import { ProjectsComponent } from "../components/projects/projects.component";
+import { Injectable } from '@angular/core';
+import { DomService } from './dom.service';
+import { Project } from '../components/projects/project.interface';
+import { ProjectsComponent } from '../components/projects/projects.component';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class ModalService {
   constructor(private domService: DomService) {}
 
-  private modalElementId = "modal-container";
-  private overlayElementId = "modal-overlay";
+  private modalElementId = 'modal-container';
+  private overlayElementId = 'modal-overlay';
   private selectedProject: Project;
   private projectsComponent: ProjectsComponent;
 
   public create(component: any, inputs: object, outputs: object): void {
     this.destroy();
-    let componentConfig = {
-      inputs: inputs,
-      outputs: outputs
+    const componentConfig = {
+      inputs,
+      outputs
     };
     this.domService.appendComponentTo(
       this.modalElementId,
@@ -26,17 +26,17 @@ export class ModalService {
       componentConfig
     );
     document.getElementById(this.modalElementId).className =
-      "modal-container__visible";
+      'modal-container__visible';
     document.getElementById(this.overlayElementId).className =
-      "modal-overlay__visible";
+      'modal-overlay__visible';
   }
 
   public destroy(): void {
     this.domService.removeComponent();
     document.getElementById(this.modalElementId).className =
-      "modal-container__hidden";
+      'modal-container__hidden';
     document.getElementById(this.overlayElementId).className =
-      "modal-overlay__hidden";
+      'modal-overlay__hidden';
   }
 
   public setSelectedProject(selectedProject: Project): void {

@@ -11,12 +11,12 @@
   width: 100%;
   height: 100%;
 
-  // The navbar takes 7% of the bottom of the screen height on desktop
-  // and 8% of the top of the screen height on mobile
-  //margin-top: 8%;
-  // 7% of the height on desktop is taken up by the navbar
-  .responsiveMin(@screen-sizes[small], {height: 93%; margin-top: 0;});
+  .responsiveMin(@screen-sizes[small], {
+    height: 93%;
+    margin-top: 0;
+  });
 }
+
 .home-mask {
   position: absolute;
   top: 0;
@@ -24,7 +24,6 @@
   width: 100%;
   height: 100%;
   opacity: 0.2;
-
   background-image: url("../../../assets/homepage-bg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -34,6 +33,7 @@
 .home-flex {
   .flexbox();
   .flexbox-dir-row();
+
   justify-content: space-around;
   align-items: center;
   text-align: center;
@@ -43,6 +43,7 @@
 .home-center {
   .flexbox();
   .flexbox-dir-col();
+
   height: 100%;
   width: 100%;
 }
@@ -50,13 +51,16 @@
 .row-top {
   .flexbox();
   .flexbox-dir-col();
+
   height: 50%;
   justify-content: center;
 }
+
 .row-title,
 .row-caption {
   height: 30%;
   .flexbox();
+
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -64,9 +68,11 @@
   font-weight: bold;
   font-size: 20pt;
 }
+
 .row-title {
   align-items: flex-end;
 }
+
 .row-caption {
   align-items: flex-start;
   color: gray;
@@ -80,12 +86,15 @@
 .row-bottom {
   .flexbox();
   .flexbox-dir-row();
+
   height: 40%;
   justify-content: space-around;
   position: relative;
 }
+
 .view-projects {
   .flexbox();
+
   align-items: center;
   text-align: center;
   padding: 1% 2%;
@@ -97,6 +106,7 @@
   color: #2196f3;
   transition: letter-spacing 0.1s ease-in;
 }
+
 .view-projects:hover,
 .view-projects:active {
   cursor: pointer;

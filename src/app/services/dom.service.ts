@@ -4,10 +4,10 @@ import {
   ComponentFactoryResolver,
   EmbeddedViewRef,
   ApplicationRef
-} from "@angular/core";
+} from '@angular/core';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class DomService {
   private childComponentRef: any;
@@ -20,7 +20,7 @@ export class DomService {
   public appendComponentTo(
     parentId: string,
     child: any,
-    childConfig?: childConfig
+    childConfig?: ChildConfig
   ) {
     // Create a component reference from the component
     const childComponentRef = this.componentFactoryResolver
@@ -50,17 +50,17 @@ export class DomService {
   }
 
   private attachConfig(config, componentRef) {
-    let inputs = config.inputs;
-    let outputs = config.outputs;
-    for (var key in inputs) {
+    const inputs = config.inputs;
+    const outputs = config.outputs;
+    for (const key in inputs) {
       componentRef.instance[key] = inputs[key];
     }
-    for (var key in outputs) {
+    for (const key in outputs) {
       componentRef.instance[key] = outputs[key];
     }
   }
 }
-interface childConfig {
+interface ChildConfig {
   inputs: object;
   outputs: object;
 }

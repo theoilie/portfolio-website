@@ -5,19 +5,19 @@ import {
   ElementRef,
   Output,
   EventEmitter
-} from "@angular/core";
-import { Section } from "src/app/shared/section.interface";
+} from '@angular/core';
+import { Section } from 'src/app/shared/section.interface';
 
 @Component({
-  selector: "app-home",
-  templateUrl: "./home.component.html",
-  styleUrls: ["./home.component.less"]
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.less']
 })
 export class HomeComponent implements OnInit, Section {
   @Output()
   public viewProjectsClicked: EventEmitter<void> = new EventEmitter<void>();
 
-  @ViewChild("homeSection", {static: false})
+  @ViewChild('homeSection', {static: false})
   private homeSection: ElementRef;
 
   constructor() {}

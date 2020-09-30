@@ -9,6 +9,7 @@
   .flexbox-dir-row();
   .flexbox();
   .display-small-only();
+
   align-items: center;
   justify-content: space-between;
   justify-items: center;
@@ -20,7 +21,6 @@
   z-index: 9999;
   height: 0;
   pointer-events: all;
-
   transition-delay: 0.75s;
   transition: height 0.3s linear;
 
@@ -29,26 +29,31 @@
     padding: 0 0.75em;
   }
 }
+
 .nav-mobile-name {
   display: none;
   background-color: #2196f3 !important;
   color: white !important;
   font-size: larger !important;
   font-weight: bolder !important;
+
   &__sticky {
     display: block;
   }
 }
+
 .nav-mobile-toggler {
   display: none;
   background-color: transparent;
   border: 1px solid darken(#2196f3, 10%);
   border-radius: 2%;
   padding: 0 0.5rem;
+
   &__sticky {
     display: block;
   }
 }
+
 .nav-mobile-toggler-icon {
   display: inline-block;
   width: 30px;
@@ -69,35 +74,45 @@
     height: auto;
     width: 100%;
     overflow: hidden;
-    .responsiveMin(@screen-sizes[small], {display: none;});
+    .responsiveMin(@screen-sizes[small], {
+      display: none;
+    });
   }
 
   &__overlay {
     pointer-events: all;
     opacity: 1;
   }
+
   &__overlay-hidden {
     pointer-events: none;
     opacity: 0;
   }
 }
+
 .mobile-nav-hidden {
   transform: translateX(100%);
-  .responsiveMin(@screen-sizes[small], {display: none;});
+  .responsiveMin(@screen-sizes[small], {
+    display: none;
+  });
 }
+
 .mobile-nav-toggler-hidden {
   display: none;
 }
+
 .mobile-nav-toggler-x-hidden {
   display: none;
 }
-.hidden .mobile-nav-overlay:before {
+
+.hidden .mobile-nav-overlay::before {
   display: inline-block;
   width: 30px;
   height: 30px;
   vertical-align: middle;
   background-image: url("../../../assets/mobile-nav-menu.svg");
 }
+
 .mobile-nav-menu {
   background-color: #2196f3;
   text-align: left;
@@ -108,8 +123,11 @@
   padding-left: 5%;
   list-style: none;
   line-height: 2;
-  .responsiveMin(@screen-sizes[small], {display: none;});
+  .responsiveMin(@screen-sizes[small], {
+    display: none;
+  });
 }
+
 .mobile-nav-link {
   color: white;
 }
@@ -126,14 +144,16 @@
   height: 0;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
   z-index: 9999;
-
   transition-delay: 0.75s;
   transition: height 0.3s linear;
 
   &__sticky {
     .hide-small-only();
+
     height: 8%;
-    .responsiveMinHeight(@screen-sizes-height[large], {height: 5%;});
+    .responsiveMinHeight(@screen-sizes-height[large], {
+      height: 5%;
+    });
   }
 }
 
@@ -141,22 +161,25 @@
   --dynamicLeft: 0;
   .flexbox();
   .flexbox-dir();
+
   justify-content: space-around;
   align-self: center;
   width: 100%;
   height: 100%;
   padding-left: 25%;
   padding-right: 25%;
-  .responsiveMin(
-    @screen-sizes[small],
-    {padding-left: 30%; padding-right: 30%;}
-  );
-  .responsiveMin(
-    @screen-sizes[large],
-    {padding-left: 35%; padding-right: 35%;}
-  );
+  .responsiveMin(@screen-sizes[small], {
+    padding-left: 30%;
+    padding-right: 30%;
+  });
+  .responsiveMin(@screen-sizes[large], {
+    padding-left: 35%;
+    padding-right: 35%;
+  });
+
   font-size: 12pt;
 }
+
 .control-item {
   &__active,
   &__inactive {
@@ -168,10 +191,12 @@
     align-items: center;
     justify-content: center;
   }
+
   &__active {
     color: #ffc372;
     font-weight: bold;
   }
+
   &__inactive {
     cursor: pointer;
     color: white;
@@ -187,6 +212,7 @@
     width: 100%;
     height: 100%;
   }
+
   &__active::before {
     animation: fade-out-bar;
     animation-duration: 1.5s;

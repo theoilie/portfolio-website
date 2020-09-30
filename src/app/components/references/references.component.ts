@@ -3,32 +3,31 @@ import {
   OnInit,
   ViewChild,
   ElementRef,
-  NgZone
-} from "@angular/core";
-import { Reference, REFERENCES } from "./reference.interface";
-import { Section } from "src/app/shared/section.interface";
+} from '@angular/core';
+import { Reference, REFERENCES } from './reference.interface';
+import { Section } from 'src/app/shared/section.interface';
 
 @Component({
-  selector: "app-references",
-  templateUrl: "./references.component.html",
-  styleUrls: ["./references.component.less"]
+  selector: 'app-references',
+  templateUrl: './references.component.html',
+  styleUrls: ['./references.component.less']
 })
 export class ReferencesComponent implements OnInit, Section {
   public references: Reference[] = REFERENCES;
-  public heightCalculated: Boolean = false;
+  public heightCalculated: boolean = false;
 
-  private ROTATE_INTERVAL_SECONDS: number = 3;
+  private ROTATE_INTERVAL_SECONDS = 3;
 
   private timer;
   private secondsUntilRotate: number;
   private currentReferenceIndex: number;
-  @ViewChild("referencesSection", {static: false})
+  @ViewChild('referencesSection', {static: false})
   private referencesSection: ElementRef;
 
   // Change the absolutely-positioned references container height dynamically based on its child's height
-  @ViewChild("relativeContainer", {static: false})
+  @ViewChild('relativeContainer', {static: false})
   private relativeContainer: ElementRef;
-  @ViewChild("referenceDiv", {static: false})
+  @ViewChild('referenceDiv', {static: false})
   private referenceDiv: ElementRef;
 
   constructor() {}
@@ -68,7 +67,7 @@ export class ReferencesComponent implements OnInit, Section {
   }
 
   public isReferenceActive(index: number): boolean {
-    return this.currentReferenceIndex == index;
+    return this.currentReferenceIndex === index;
   }
 
   public onImageLoaded(_: any): void {
@@ -79,8 +78,8 @@ export class ReferencesComponent implements OnInit, Section {
     // Set the container's height to contain the selected reference
     const height = this.referenceDiv.nativeElement.offsetHeight;
     this.relativeContainer.nativeElement.style.setProperty(
-      "--dynamicHeight",
-      height + "px"
+      '--dynamicHeight',
+      height + 'px'
     );
     setTimeout(() => {
       this.heightCalculated = true;

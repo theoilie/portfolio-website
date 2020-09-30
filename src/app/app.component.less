@@ -14,9 +14,11 @@
     background-color: whitesmoke;
     transition: opacity 0.5s ease-in-out;
   }
+
   &__container {
     opacity: 1;
   }
+
   &__container-hidden {
     opacity: 0;
   }
@@ -35,6 +37,7 @@
   &__visible,
   &__hidden {
     .flexbox();
+
     width: 100vw;
     height: 100vh;
     position: fixed;
@@ -57,10 +60,12 @@
     // Animate the opacity
     transition: opacity 0.3s ease-in-out;
   }
+
   &__visible {
     opacity: 1;
     pointer-events: initial;
   }
+
   &__hidden {
     opacity: 0;
   }

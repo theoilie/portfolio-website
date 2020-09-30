@@ -9,10 +9,10 @@ export interface Project {
 
 export const PROJECTS: Project[] = [
   {
-    name: "HeroEngineer.com",
-    caption: "Course Website",
-    coverIcon: "../../../assets/projects/heroengineer.png",
-    techStack: "React, Java, MongoDB, Docker, Linux, Nginx",
+    name: 'HeroEngineer.com',
+    caption: 'Course Website',
+    coverIcon: '../../../assets/projects/heroengineer.png',
+    techStack: 'React, Java, MongoDB, Docker, Linux, Nginx',
     description: `
       <h4>Project Background</h4>
       As the website for the Advanced Writing for Engineers class at USC, this project serves as a learning environment for students.
@@ -54,10 +54,10 @@ export const PROJECTS: Project[] = [
       `
   },
   {
-    name: "Pycoal Parallel",
-    caption: "Python Toolkit",
-    coverIcon: "../../../assets/projects/pycoal-parallel.jpg",
-    techStack: "Python, NumPy, GitHub",
+    name: 'Pycoal Parallel',
+    caption: 'Python Toolkit',
+    coverIcon: '../../../assets/projects/pycoal-parallel.jpg',
+    techStack: 'Python, NumPy, GitHub',
     description: `
       <h4>Project Background</h4>
       Pycoal Parallel identifies coal mines and correlates them with geographic features such as rivers and lakes in order to understand how coal mining can negatively impact water supplies.
@@ -92,11 +92,11 @@ export const PROJECTS: Project[] = [
       `
   },
   {
-    name: "theoilie.com",
-    caption: "Personal Website",
-    coverIcon: "../../../assets/projects/personal-site.png",
+    name: 'theoilie.com',
+    caption: 'Personal Website',
+    coverIcon: '../../../assets/projects/personal-site.png',
     techStack:
-      "Angular 8, JavaScript/TypeScript, HTML5/CSS3, Linux, Nginx",
+      'Angular, JavaScript/TypeScript, HTML5/CSS3, Linux, Nginx',
     description: `
       I built this portfolio website with the 3 main purposes of:
       <div style="padding-left: 3%;">
@@ -108,7 +108,7 @@ export const PROJECTS: Project[] = [
       </div>
       <br />
       I originally used Angular 7 with Less CSS, and I rented a Linux machine to install an SSL certificate and deploy the site with Apache Web Server.
-      I've since updated to Angular 8 and use Nginx to make both theodoreilie.com and theoilie.com (optionally with a "www." before it) work with HTTP and HTTPS (they're all configured to redirect to theoilie.com using HTTPS).
+      I've since updated to Angular 10 and use Nginx to make both theodoreilie.com and theoilie.com (optionally with a "www." before it) work with HTTP and HTTPS (they're all configured to redirect to theoilie.com using HTTPS).
       The site is made mobile-first and responsive, with the goal of supporting as many modern devices and browsers as possible.
       I've tested it on iPhone 7, iPhone X, iPad, and screen sizes 11 inches through 27 inches -- plus on Safari, Chrome, and FireFox.
 
@@ -118,10 +118,10 @@ export const PROJECTS: Project[] = [
       `
   },
   {
-    name: "TradeCatcher",
-    caption: "Automated Stocks Trading Bot",
-    coverIcon: "../../../assets/projects/tradecatcher.jpg",
-    techStack: "Java, Docker, MongoDB, Redis, Linux",
+    name: 'TradeCatcher',
+    caption: 'Automated Stocks Trading Bot',
+    coverIcon: '../../../assets/projects/tradecatcher.jpg',
+    techStack: 'Java, Docker, MongoDB, Redis, Linux',
     description: `
       TradeCatcher is a fully automated stocks trading bot with 3 components: collection, analysis, and trading.
       <h4>Setup</h4>
@@ -153,10 +153,10 @@ export const PROJECTS: Project[] = [
       `
   },
   {
-    name: "201-scheduler",
-    caption: "Collaborative Calendar Website",
-    coverIcon: "../../../assets/projects/201-scheduler.png",
-    techStack: "Apache Spring, HTML/CSS, MongoDB, JavaScript/jQuery, Docker",
+    name: '201-scheduler',
+    caption: 'Collaborative Calendar Website',
+    coverIcon: '../../../assets/projects/201-scheduler.png',
+    techStack: 'Apache Spring, HTML/CSS, MongoDB, JavaScript/jQuery, Docker',
     description: `
       As a final project for a Java/Web class, I led a group of 3 students through the creation of an idea we came up: a website for clubs and organizations to share calendars, edit them concurrently, and easily view conflicts with other club/organizations' calendars.
       My individual responsibilities included:
@@ -184,10 +184,10 @@ export const PROJECTS: Project[] = [
       `
   },
   {
-    name: "Snap MySQL Plugin",
-    caption: "Intel's Data-Collection Agent",
-    coverIcon: "../../../assets/projects/snap.png",
-    techStack: "GoLang, MySQL",
+    name: 'Snap MySQL Plugin',
+    caption: 'Intel\'s Data-Collection Agent',
+    coverIcon: '../../../assets/projects/snap.png',
+    techStack: 'GoLang, MySQL',
     description: `
       Snap is Intel's telemetry agent.
       It collects information on clusters of devices, processes it, and then publishes it for system administrators to view.
@@ -199,11 +199,11 @@ export const PROJECTS: Project[] = [
       `
   },
   {
-    name: "GameDispenser",
-    caption: "Minigame Framework",
-    coverIcon: "../../../assets/projects/gamedispenser.png",
-    techStack: "Java, MySQL, Code Documentation/JavaDocs",
-    cssId: "game-dispenser-project",
+    name: 'GameDispenser',
+    caption: 'Minigame Framework',
+    coverIcon: '../../../assets/projects/gamedispenser.png',
+    techStack: 'Java, MySQL, Code Documentation/JavaDocs',
+    cssId: 'game-dispenser-project',
     description: `
       <h4>Framework</h4>
       My earliest coding projects were for the popular open-world game Minecraft.
