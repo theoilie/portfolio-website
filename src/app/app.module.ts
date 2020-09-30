@@ -6,10 +6,6 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { NavComponent } from "./components/nav/nav.component";
 
-import { MatIconModule } from "@angular/material/icon";
-import { MatButtonModule } from "@angular/material/button";
-import { MatMenuModule } from "@angular/material/menu";
-
 import { RouterModule, Routes, Route } from "@angular/router";
 import { ResumeComponent } from "./components/resume/resume.component";
 import { ReferencesComponent } from "./components/references/references.component";
@@ -45,9 +41,6 @@ const appRoutes: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    MatIconModule,
-    MatButtonModule,
-    MatMenuModule,
     RouterModule.forRoot(appRoutes, {
       scrollPositionRestoration: "disabled",
       anchorScrolling: "disabled",

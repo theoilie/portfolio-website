@@ -26,7 +26,6 @@
             "styles": [
               "src/styles.css",
               "src/app/shared/styles.less",
-              "src/light-theme.scss"
             ],
             "scripts": []
           },
@@ -101,23 +100,10 @@
             "tsConfig": [
               "tsconfig.app.json",
               "tsconfig.spec.json",
-              "e2e/tsconfig.json"
             ],
             "exclude": [
               "**/node_modules/**"
             ]
-          }
-        },
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "portfolio-website:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "portfolio-website:serve:production"
-            }
           }
         }
       }
