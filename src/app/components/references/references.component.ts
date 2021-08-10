@@ -2,7 +2,7 @@ import {
   Component,
   OnInit,
   ViewChild,
-  ElementRef,
+  ElementRef
 } from '@angular/core';
 import { Reference, REFERENCES } from './reference.interface';
 import { Section } from 'src/app/shared/section.interface';
@@ -14,7 +14,7 @@ import { Section } from 'src/app/shared/section.interface';
 })
 export class ReferencesComponent implements OnInit, Section {
   public references: Reference[] = REFERENCES;
-  public heightCalculated: boolean = false;
+  public heightCalculated: boolean;
 
   private ROTATE_INTERVAL_SECONDS = 3;
 
@@ -23,6 +23,11 @@ export class ReferencesComponent implements OnInit, Section {
   private currentReferenceIndex: number;
   @ViewChild('referencesSection', {static: false})
   private referencesSection: ElementRef;
+
+  // Change the height of the carousel container to always be at the max height of the images in it
+  @ViewChild('referencesCarousel')
+  private referencesCarousel: ElementRef;
+  private biggestCarouselHeight: number;
 
   // Change the absolutely-positioned references container height dynamically based on its child's height
   @ViewChild('relativeContainer', {static: false})
@@ -40,6 +45,9 @@ export class ReferencesComponent implements OnInit, Section {
   public onEnter(): void {
     this.startInterval();
     this.recalculateHeight();
+    setTimeout(() => {
+      this.setMaxCarouselHeight();
+    }, 1000);
   }
 
   // Stop rotating between references when the user scrolls out of the references section
@@ -60,7 +68,7 @@ export class ReferencesComponent implements OnInit, Section {
     this.secondsUntilRotate = this.ROTATE_INTERVAL_SECONDS;
   }
 
-  // Selects a reference and pauses automatic rotation so that the user can read
+  // Selects a reference and pauses automatic rotation so that the user can read it
   public selectReferenceAndPause(index: number): void {
     this.selectReference(index);
     this.stopInterval();
@@ -106,5 +114,20 @@ export class ReferencesComponent implements OnInit, Section {
     if (this.timer) {
       clearInterval(this.timer);
     }
+  }
+
+  // Set the height of the carousel to be the maximum of its children's heights
+  // This prevents the page from bouncing when the active carousel item transitions
+  private setMaxCarouselHeight(): void {
+    for (const carouselImg of this.referencesCarousel.nativeElement.children) {
+      this.biggestCarouselHeight = Math.max(
+        this.biggestCarouselHeight || 0,
+        carouselImg.offsetHeight,
+        this.referencesCarousel.nativeElement.offsetHeight);
+    }
+    this.referencesCarousel.nativeElement.style.setProperty(
+      '--dynamicCarouselHeight',
+      this.biggestCarouselHeight + 'px'
+    );
   }
 }

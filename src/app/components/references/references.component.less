@@ -123,19 +123,62 @@
   justify-content: space-between;
 }
 
-// Add space between each recommender's profile pic
-.references-row-spacer {
-  width: 10%;
-  height: 5vh;
-}
+// References selection carousel
+.references-carousel {
+  --dynamicCarouselHeight: 0;
 
-.round-reference-pic {
-  vertical-align: middle;
+  overflow-x: scroll;
+  -ms-overflow-x: scroll;
   width: 100%;
   height: 100%;
+  min-height: var(--dynamicCarouselHeight);
+  .flexbox();
+  justify-content: center;
+  align-items: center;
 }
+.references-carousel-icon {
+  &__active,
+  &__inactive {
+    vertical-align: middle;
+    margin: 0 5px 10px 5px;
+    transition: all 1s cubic-bezier(0.65, 0.05, 0.36, 1) 0s;
+  }
 
-.square-reference-pic {
+  &__active {
+    width: 26%;
+    height: 26%;
+    .responsiveMin(@screen-sizes[small], {
+      width: 21%;
+      height: 21%;
+    });
+    .responsiveMin(@screen-sizes[extra-large], {
+      width: 16%;
+      height: 17%;
+    });
+  }
+
+  &__inactive {
+    width: 16%;
+    height: 16%;
+    .responsiveMin(@screen-sizes[small], {
+      width: 11%;
+      height: 11%;
+    });
+    .responsiveMin(@screen-sizes[extra-large], {
+      width: 6%;
+      height: 6%;
+    });
+  }
+
+  &__active > img,
+  &__inactive > img {
+    border-radius: 100%;
+    transition: all 250ms ease 0s;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
   &__active > img {
     filter: none;
     -webkit-filter: none;
@@ -144,47 +187,12 @@
   &__inactive > img {
     filter: grayscale(1);
     -webkit-filter: grayscale(100%);
+    cursor: pointer;
   }
 
-  &__active > img:hover,
-  &__inactive > img:hover {
-    border-color: darken(#2196f3, 20%);
+  &__inactive > img:hover,
+  &__inactive > img:focus {
     filter: none;
     -webkit-filter: none;
   }
-
-  &__active,
-  &__inactive {
-    vertical-align: middle;
-    width: 20%;
-    height: 20%;
-    .responsiveMin(@screen-sizes[small], {
-      width: 15%;
-      height: 15%;
-    });
-    .responsiveMin(@screen-sizes[extra-large], {
-      width: 10%;
-      height: 10%;
-    });
-  }
-}
-
-.round-reference-pic > img,
-.square-reference-pic__active > img,
-.square-reference-pic__inactive > img {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-.round-reference-pic > img {
-  border: 1px solid #2196f3;
-  border-radius: 100%;
-}
-
-.square-reference-pic__active > img,
-.square-reference-pic__inactive > img {
-  border: 1px solid #2196f3;
-  border-radius: 15%;
-  cursor: pointer;
 }

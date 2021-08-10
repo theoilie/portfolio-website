@@ -8,7 +8,7 @@ export interface Reference {
 export const REFERENCES: Reference[] = [
   {
     name: 'Jesse Parisian',
-    title: 'Senior Software Developer @ Vista',
+    title: 'Senior Software Developer @ Cross River',
     recommendationText: `I am a Senior Software Developer and Team Lead at Vista and was Theo's direct manager over the course of his internship. I was very impressed with Theo during his time at Vista; he learned new concepts very quickly and was able to demonstrate a high level of understanding in his work. He got up to speed very quickly and completed his internship project ahead of schedule. A core component of his internship was to develop a new piece of functionality (a full feature) in our web based Staff Scheduling application called Time Card Manager. His project involved working on the front end of the application which was written in Angular 7. The project also involved working on the back end which included SQL Server, Entity Framework and .NET Web API. He also wrote unit tests around the functionality as part of the project. Our team uses a combination of Git and TFS for source control so Theo had some good exposure to both. Theo was comfortable working independently, but wasn't afraid to reach out to the team whenever he had questions or needed assistance. Theo was great to work with and everyone on the team enjoyed having him around. He did an excellent job and has a bright future ahead. We'd be happy to work with Theo again.`,
     imageUri: 'assets/jesse-parisian.jpeg'
   },
