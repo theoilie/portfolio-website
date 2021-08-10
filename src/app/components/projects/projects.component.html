@@ -9,23 +9,21 @@
     <ng-container>
       <div class="project-icons-container">
         <ng-container *ngFor="let project of projects; index as i">
-          <span id="{{ project?.cssId }}" class="project-icon">
-            <span
-              class="project-icon__preview"
-            >
+          <span id="{{ project?.cssThumbnailId }}" class="project-icon">
+            <span class="project-icon__preview">
               <span class="project-icon__preview__gradient">
                 <span class="project-icon__preview__name">
                 {{ project.name }}
-              </span>
-              <span
-                class="project-icon__preview__open"
-                (click)="selectProject(i)"
-              >
-                View
-              </span>
+                </span>
+                <span
+                  class="project-icon__preview__open"
+                  (click)="selectProject(i)"
+                >
+                  View
+                </span>
               </span>
             </span>
-            <img class="project-icon__img" src="{{ project.coverIcon }}" />
+            <img class="project-icon__img" src="{{ project.thumbnailPath }}" />
           </span>
         </ng-container>
       </div>

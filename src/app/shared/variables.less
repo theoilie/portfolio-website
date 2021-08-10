@@ -27,6 +27,11 @@
     @rules();
   }
 }
+.responsiveMinWidthAndHeight(@minWidth; @minHeight; @rules) {
+  @media only screen and (min-width: @minWidth) and (min-height: @minHeight) {
+    @rules();
+  }
+}
 
 // Use 12 columns for responsiveness
 .generate-columns(@n, @i: 1) when (@i =< @n) {

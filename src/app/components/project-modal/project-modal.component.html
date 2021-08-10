@@ -1,20 +1,68 @@
 <div [ngClass]="selectedProject ? 'modal__active' : 'modal__inactive'">
-  <!-- Controls -->
+  <!-- Project navigation -->
   <div class="modal-controls">
     <span class="modal-controls__arrows">
-      <span class="modal-controls__arrows__previous" (click)="selectPrevious()">
+      <span
+        class="modal-controls__arrows__previous"
+        (click)="selectPrevious()"
+        aria-label="Previous project"
+      >
+        <svg
+          class="modal-controls__arrows__previous__icon"
+          viewBox="0 0 512 512"
+          focusable="false"
+          aria-hidden="true"
+          role="img"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path fill="currentColor" d="M193.941,256c0,0 127.295,127.295 174.06,174.06c9.372,9.372 9.372,24.567 0,33.939c-0,0 -0.001,0.001 -0.001,0.001c-9.373,9.373 -24.569,9.373 -33.941,0c-40.01,-40.01 -140.256,-140.256 -185.373,-185.373c-12.496,-12.496 -12.496,-32.758 0,-45.254c45.117,-45.117 145.365,-145.366 185.374,-185.374c4.501,-4.501 10.605,-7.029 16.969,-7.029c6.365,-0 12.469,2.528 16.97,7.029c0,0 0.001,0.001 0.001,0.001c4.501,4.501 7.029,10.605 7.029,16.971c0,6.365 -2.528,12.469 -7.029,16.97c-46.767,46.767 -174.059,174.059 -174.059,174.059Z">
+          </path>
+        </svg>
       </span>
-      <span class="modal-controls__arrows__next" (click)="selectNext()"> </span>
+      <span
+        class="modal-controls__arrows__next"
+        (click)="selectNext()"
+        aria-label="Next project"
+      >
+        <svg
+          class="modal-controls__arrows__next__icon"
+          viewBox="0 0 512 512"
+          focusable="false"
+          aria-hidden="true"
+          role="img"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path fill="currentColor" d="M318.059,256c-0,0 -127.295,127.295 -174.06,174.06c-9.372,9.372 -9.372,24.567 -0,33.939c0,0 0.001,0.001 0.001,0.001c9.373,9.373 24.569,9.373 33.941,0c40.01,-40.01 140.256,-140.256 185.373,-185.373c12.496,-12.496 12.496,-32.758 -0,-45.254c-45.117,-45.117 -145.365,-145.366 -185.374,-185.374c-4.501,-4.501 -10.605,-7.029 -16.969,-7.029c-6.365,-0 -12.469,2.528 -16.97,7.029c-0,0 -0.001,0.001 -0.001,0.001c-4.501,4.501 -7.029,10.605 -7.029,16.971c-0,6.365 2.528,12.469 7.029,16.97c46.767,46.767 174.059,174.059 174.059,174.059Z">
+          </path>
+        </svg>
+      </span>
     </span>
-    <span class="modal-controls__close" (click)="close()">X</span>
+    <span
+      class="modal-controls__close"
+      (click)="close()"
+      aria-label="Close project"
+    >
+      <svg
+        class="modal-controls__close__icon"
+        viewBox="0 0 12 12"
+        focusable="false"
+        aria-hidden="true"
+        role="img"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path fill-rule="evenodd" clip-rule="evenodd" fill="currentColor" d="M.293.293a1 1 0 011.414 0L6 4.586 10.293.293a1 1 0 111.414 1.414L7.414 6l4.293 4.293a1 1 0 01-1.414 1.414L6 7.414l-4.293 4.293a1 1 0 01-1.414-1.414L4.586 6 .293 1.707a1 1 0 010-1.414z">
+        </path>
+      </svg>
+    </span>
   </div>
 
-  <!-- Header Info -->
+  <!-- Project header Info -->
   <div class="modal-header">
     <div class="modal-header__icon">
       <img
         class="modal-header__icon__img"
-        src="{{ selectedProject.coverIcon }}"
+        src="{{ selectedProject.thumbnailPath }}"
+        alt="project icon"
       />
     </div>
 
@@ -27,18 +75,23 @@
       </div>
 
       <div class="modal-header__textbox__tech-stack">
-        {{ selectedProject.techStack }}
+        {{ selectedProject.tags }}
       </div>
     </div>
   </div>
 
-  <!-- Content -->
+  <!-- Project content/description -->
   <div class="modal-content">
     <div class="modal-content__body">
-      <div
-        class="modal-content__description"
-        [innerHTML]="selectedProject.description"
-      ></div>
+      <div class="modal-content__description">
+        <app-project-hero-engineer *ngIf="selectedProject.name === 'HeroEngineer.com'"></app-project-hero-engineer>
+          <app-project-pycoal-parallel *ngIf="selectedProject.name === 'Pycoal Parallel'"></app-project-pycoal-parallel>
+          <app-project-theoilie-com *ngIf="selectedProject.name === 'theoilie.com'"></app-project-theoilie-com>
+          <app-project-trade-catcher *ngIf="selectedProject.name === 'TradeCatcher'"></app-project-trade-catcher>
+          <app-project-cs201-scheduler *ngIf="selectedProject.name === '201-scheduler'"></app-project-cs201-scheduler>
+          <app-project-snap-mysql-plugin *ngIf="selectedProject.name === 'Snap MySQL Plugin'"></app-project-snap-mysql-plugin>
+          <app-project-game-dispenser *ngIf="selectedProject.name === 'GameDispenser'"></app-project-game-dispenser>
+      </div>
     </div>
   </div>
 </div>

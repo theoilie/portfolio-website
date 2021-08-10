@@ -28,6 +28,10 @@
   display: inline-block;
   width: 100%;
   height: 100%;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 
   &__img {
     width: 100%;
@@ -55,7 +59,7 @@
   }
 
   &__preview:hover,
-  &__preview:active {
+  &__preview:focus {
     opacity: 1;
   }
 
@@ -75,11 +79,11 @@
 
   &__preview__name {
     font-weight: bolder;
-    letter-spacing: 0.1em;
-    font-size: 18px;
+    letter-spacing: 0.9px;
+    font-size: 17px;
     text-align: center;
-    color: white;
-    width: 200px;
+    color: white !important;
+    width: 74%;
     height: 50px;
     margin-right: 10px;
     .flexbox();
@@ -90,11 +94,11 @@
   &__preview__open {
     border: 1px solid white;
     border-radius: 5px;
-    padding: 6px 18px;
+    padding: 6px 4px;
     font-weight: bold;
-    color: white;
-    letter-spacing: 2px;
-    width: 100px;
+    color: white !important;
+    letter-spacing: 0.6px;
+    width: 24%;
     height: 33px;
     text-align: center;
   }
@@ -106,12 +110,8 @@
   }
 }
 
-/*
-/* Styles specific to each project
-*/
-
-#game-dispenser-project {
-  // The GameDispenser project icon doesn't have a background by default
+#game-dispenser-project-thumbnail {
+  // The GameDispenser project thumbnail doesn't have a background by default, so we give it one here
   .project-icon__img {
     background-color: steelblue;
   }

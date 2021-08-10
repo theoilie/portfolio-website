@@ -1,0 +1,35 @@
+<h4>Project Summary</h4>
+<ul>
+  <li>
+    Final project for a Java/web class. Allows student clubs and organizations to create calendars, share and edit
+    them concurrently, and view conflicts with other organizations' calendars.
+  </li>
+</ul>
+
+<h4>Personal Summary</h4>
+<ul>
+  <li>
+    Set up the Java Spring project with Maven, and provided documentation for the other students to install the
+    dependencies (the team used both Windows and Mac, so we supported both)
+  </li>
+  <li>
+    Dockerized the project so that the MongoDB database shipped with it.
+    This eliminated the need for new admins to install a database and made our demo process smoother
+  </li>
+  <li>
+    Created endpoints and functionality for user registration and login, as well as calendar creation, editing, and sharing
+  </li>
+  <li>
+    Used WebSockets (StompJS library) to implement concurrent calendar editing (like Google Docs but with calendar events instead of text editing)
+  </li>
+  <li>
+    Presented the project with my team to the class and professor for 10 minutes, and gave a live demo for 5 minutes
+  </li>
+</ul>
+
+<h4>Source Code</h4>
+The source code is available <a class="link" href="https://github.com/lactem/201-scheduler">here</a>.
+You can also try out the website by using the Docker container we created:
+<code>
+  docker pull tilie/scheduler && docker-compose up
+</code>

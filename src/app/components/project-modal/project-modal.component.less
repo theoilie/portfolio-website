@@ -8,7 +8,7 @@
     .flexbox-dir-col();
 
     padding-top: 8px;
-    background-color: white;
+    background-color: ghostwhite;
     z-index: 9999999;
     .responsiveMin(@screen-sizes[small], {
       width: 3vw;
@@ -32,16 +32,22 @@
 
     // Display a centered modal on desktop and larger devices
     .responsiveMin(@screen-sizes[small], {
-      height: 75vh;
       width: 75vw;
-      top: 12.5vh;
+      height: 75vh;
       left: 12.5vw;
+      top: 12.5vh;
     });
     .responsiveMin(@screen-sizes[extra-large], {
-      height: 50vh;
       width: 50vw;
-      top: 25vh;
+      height: 75vh;
       left: 25vw;
+      top: 12.5vh;
+    });
+    .responsiveMinWidthAndHeight(@screen-sizes[extra-large], @screen-sizes-height[large], {
+      width: 50vw;
+      height: 50vh;
+      left: 25vw;
+      top: 15vh;
     });
   }
 
@@ -62,9 +68,10 @@
   &__arrows__previous,
   &__arrows__next,
   &__close {
+    transition: all 250ms ease 0s;
+
     margin: 0;
     .flexbox();
-
     justify-content: center;
     align-items: center;
     width: 22px;
@@ -74,20 +81,30 @@
       height: 27px;
     });
 
-    font-weight: lighter;
     border-radius: 100%;
-    background-color: gainsboro;
+    background-color: #edf2f7;
+
+    &__icon {
+      width: 0.75em;
+      height: 0.75em;
+      .responsiveMin(@screen-sizes[extra-large], {
+        width: 0.9em;
+        height: 0.9em;
+      });
+    }
   }
 
   &__arrows__previous:hover,
   &__arrows__next:hover,
   &__close:hover {
-    .responsiveMin(@screen-sizes[small], {
-      font-weight: bolder;
-      cursor: pointer;
-      background-color: lighten(gainsboro,
-      10%);
-    });
+    cursor: pointer;
+    background-color: #e2e8f0;
+  }
+
+  &__arrows__previous:focus,
+  &__arrows__next:focus,
+  &__close:focus {
+    background-color: #e2e8f0;
   }
 
   &__arrows {
@@ -96,18 +113,6 @@
 
     justify-content: space-between;
     width: 100px;
-
-    &__previous {
-      background-image: url("../../../assets/chevron_left.png");
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-
-    &__next {
-      background-image: url("../../../assets/chevron_right.png");
-      background-position: center;
-      background-repeat: no-repeat;
-    }
   }
 }
 
@@ -115,7 +120,6 @@
   .flexbox();
 
   height: fit-content;
-  min-height: 125px;
   border-bottom: 1px solid rgba(79, 70, 115, 0.15);
   padding: 5px 0;
   .responsiveMin(@screen-sizes[small], {
@@ -124,36 +128,57 @@
 
   &__icon {
     margin: 0 10px;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 
     &__img {
       height: 100px;
       width: 100px;
-      border: 1px solid black;
-      border-radius: 4%;
+      border-radius: 1.25rem;
+      background-color: steelblue; // For GameDispenser because it's transparent
     }
   }
 
   &__textbox {
     .flexbox();
     .flexbox-dir-col();
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 
     &__title {
-      font-weight: bold;
-      font-size: 16pt;
+      overflow-wrap: anywhere;
       text-align: left;
+      font-weight: bold;
+      font-size: 20pt;
+      .responsiveMin(@screen-sizes[small], {
+        font-size: 24pt;
+      });
     }
 
     &__caption {
-      font-size: 14pt;
       text-align: left;
       color: gray;
       margin-bottom: 3%;
+      font-size: 15pt;
+      .responsiveMin(@screen-sizes[small], {
+        font-size: 18pt;
+      });
     }
 
     &__tech-stack {
-      font-size: 10pt;
       margin-bottom: 2%;
       font-style: italic;
+      font-size: 8pt;
+      .responsiveMin(@screen-sizes[extra-small], {
+        font-size: 10pt;
+      });
+      .responsiveMin(@screen-sizes[small], {
+        font-size: 11pt;
+      });
     }
   }
 }
@@ -172,6 +197,11 @@
   }
 
   &__description {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    overflow-wrap: anywhere;
     font-size: 12pt;
     padding: 3vh;
   }
