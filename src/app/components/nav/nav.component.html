@@ -4,40 +4,47 @@
   [class.navbar-mobile__sticky]="sticky"
   #mobileNav
 >
-  <a
-    class="nav-mobile-name"
-    [class.nav-mobile-name__sticky]="sticky"
-    routerLink="."
-    fragment="home"
-    (click)="scrollToDiv('home')"
+  <div class="nav-mobile-wrapper">
+    <a
+      class="nav-mobile-name"
+      [class.nav-mobile-name__sticky]="sticky"
+      routerLink="."
+      fragment="home"
+      (click)="scrollToDiv('home')"
     >Theo</a
-  >
+    >
 
-  <button
-    class="nav-mobile-toggler"
-    [class.mobile-nav-toggler-hidden]="false"
-    [class.nav-mobile-toggler__sticky]="sticky"
-    (click)="toggleMobileNav()"
-  >
-    <span class="nav-mobile-toggler-icon"></span>
-  </button>
+    <button
+      class="nav-mobile-toggler"
+      [class.mobile-nav-toggler-hidden]="false"
+      [class.nav-mobile-toggler__sticky]="sticky"
+      (click)="toggleMobileNav()"
+    >
+      <span class="nav-mobile-toggler-icon"></span>
+    </button>
+  </div>
 </div>
 
 <!-- Dropdown menu on mobile screens -->
 <div
   [ngClass]="
-    isMobileNavVisible() ? 'mobile-nav__overlay' : 'mobile-nav__overlay-hidden'
+    isMobileNavVisible() ? 'mobile-nav-overlay' : 'mobile-nav-overlay__hidden'
   "
 >
-  <ul class="mobile-nav-menu" [class.mobile-nav-hidden]="!isMobileNavVisible()">
+  <ul
+    [ngClass]="
+      isMobileNavVisible() ? 'mobile-nav-menu' : 'mobile-nav-menu__hidden'
+    "
+  >
     <li *ngFor="let navDiv of navItems">
       <a
         class="mobile-nav-link"
+        [class.mobile-nav-link__selected]="isActive(navDiv)"
         (click)="scrollToDiv(navDiv)"
         routerLink="."
         fragment="{{ navDiv }}"
       >
-        {{ navDiv | titlecase }}
+        {{ navDiv | uppercase }}
       </a>
     </li>
   </ul>

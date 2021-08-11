@@ -1,9 +1,7 @@
 <!-- Hide the loading animation completely after half a second (to allow it to fade away smoothly first) -->
 <ng-container *ngIf="!loadedHalfSecondAfter">
   <div [ngClass]="loaded ? 'loading__container-hidden' : 'loading__container'">
-    <div class="loading__img-container">
-      <img src="../assets/loading.gif" />
-    </div>
+    <div class="gradient-text-container"></div>
   </div>
 </ng-container>
 

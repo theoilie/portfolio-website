@@ -2,6 +2,8 @@ import {
   Component,
   ElementRef,
   OnInit,
+  OnDestroy,
+  AfterViewInit,
   ViewChild,
   Input
 } from '@angular/core';
@@ -13,7 +15,7 @@ import { filter } from 'rxjs/operators';
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.less']
 })
-export class NavComponent implements OnInit {
+export class NavComponent implements OnInit, OnDestroy, AfterViewInit {
   @Input()
   private loaded: boolean;
   @Input()
@@ -67,7 +69,7 @@ export class NavComponent implements OnInit {
           if (
             this.navItems.filter(item => item === tree.fragment).length === 1
           ) {
-            // Scroll to the fragment if it's the first NavigationEnd event (id == 1).
+            // Scroll to the fragment if it's the first NavigationEnd event (id == 1)
             if (event.id === 1) {
               setTimeout(() => {
                 this.selectDiv(tree.fragment);
@@ -81,7 +83,7 @@ export class NavComponent implements OnInit {
   }
 
   // Hide the mobile nav dropdown menu when anywhere outside of it is clicked
-  onTouch = (event: any): void => {
+  onTouch = (_: any): void => {
     if (this.mobileNavVisible) {
       this.mobileNavVisible = false;
     }

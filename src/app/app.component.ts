@@ -1,7 +1,8 @@
 import {
   AfterViewInit,
+  OnInit,
+  OnDestroy,
   Component,
-  ElementRef,
   HostListener,
   ViewChild
 } from '@angular/core';
@@ -20,7 +21,7 @@ import { ModalService } from './services/modal.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.less']
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements AfterViewInit, OnInit, OnDestroy {
   public mobileNavPosition = 0;
   public desktopHomePosition = 0;
   public desktopProjectsPosition = 0;
@@ -90,7 +91,7 @@ export class AppComponent implements AfterViewInit {
 
   // Recalculate positions when the browser is resized
   @HostListener('window:resize', ['$event'])
-  onResize(event: any) {
+  onResize(_: any) {
     this.ngAfterViewInit();
   }
 
@@ -100,7 +101,7 @@ export class AppComponent implements AfterViewInit {
     }
   };
 
-  onScroll = (event: any): void => {
+  onScroll = (_: any): void => {
     if (!this.loadedHalfSecondAfter) {
       return;
     }
