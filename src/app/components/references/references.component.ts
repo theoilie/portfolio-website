@@ -44,7 +44,6 @@ export class ReferencesComponent implements OnInit, Section {
   // Start rotating between references when the user scrolls to the references section
   public onEnter(): void {
     this.startInterval();
-    this.recalculateHeight();
     setTimeout(() => {
       this.setMaxCarouselHeight();
     }, 1000);
@@ -56,10 +55,6 @@ export class ReferencesComponent implements OnInit, Section {
   }
 
   public getHeight(): number {
-    // getHeight() is called when the browser window resizes
-    setTimeout(() => {
-      this.recalculateHeight();
-    }, 100);
     return this.referencesSection.nativeElement.offsetHeight;
   }
 
@@ -76,22 +71,6 @@ export class ReferencesComponent implements OnInit, Section {
 
   public isReferenceActive(index: number): boolean {
     return this.currentReferenceIndex === index;
-  }
-
-  public onImageLoaded(_: any): void {
-    this.recalculateHeight();
-  }
-
-  private recalculateHeight(): void {
-    // Set the container's height to contain the selected reference
-    const height = this.referenceDiv.nativeElement.offsetHeight;
-    this.relativeContainer.nativeElement.style.setProperty(
-      '--dynamicHeight',
-      height + 'px'
-    );
-    setTimeout(() => {
-      this.heightCalculated = true;
-    }, 100);
   }
 
   // Start cycling between references every ROTATE_INTERVAL_SECONDS seconds

@@ -7,7 +7,7 @@
 
 // Relative container defines the dimensions for its child absolute containers
 .relative-container {
-  --dynamicHeight: 0;
+  //--dynamicHeight: 0;
 
   display: inline-block;
   position: relative;
@@ -17,8 +17,10 @@
 
   align-items: center;
   // Height doesn't work because of the absolutely-positioned childen, so we use padding instead
-  height: 0;
-  padding-bottom: var(--dynamicHeight);
+  //height: 0;
+  //padding-bottom: var(--dynamicHeight);
+  height: 300px;
+  //overflow-y: auto;
 }
 
 // Absolute containers inside the relative container
@@ -29,10 +31,22 @@
     .flexbox-dir-col();
 
     align-items: center;
+    height: 100%;
+    overflow-y: auto;
 
     // Effects for smoothly transitioning between the recommendations
     position: absolute;
     transition: opacity 1s ease-in-out;
+
+    // Make the content stand out
+    -webkit-box-shadow: 0 0 5px 2px lightslategray;
+    -moz-box-shadow: 0 0 5px 2px lightslategray;
+    box-shadow: 0 0 5px 2px lightslategray;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+    outline: none;
+    padding: 5px;
   }
 
   &__active {
@@ -127,8 +141,6 @@
 .references-carousel {
   --dynamicCarouselHeight: 0;
 
-  overflow-x: scroll;
-  -ms-overflow-x: scroll;
   width: 100%;
   height: 100%;
   min-height: var(--dynamicCarouselHeight);

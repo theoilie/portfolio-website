@@ -39,9 +39,7 @@
           </div>
 
           <!-- Text of the current recommendation -->
-          <div class="reference-contents">
-            {{ reference.recommendationText }}
-          </div>
+          <div class="reference-contents" [innerHTML]="reference.recommendationText"></div>
         </div>
       </ng-container>
     </div>
