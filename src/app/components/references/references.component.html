@@ -10,10 +10,10 @@
       <ng-container *ngFor="let reference of references; index as i">
         <div
           [ngClass]="
-              isReferenceActive(i)
-                ? 'references-carousel-icon__active'
-                : 'references-carousel-icon__inactive'
-            "
+            isReferenceActive(i)
+              ? 'references-carousel-icon__active'
+              : 'references-carousel-icon__inactive'
+          "
           (click)="selectReferenceAndPause(i)"
         >
           <img src="{{ reference.imageUri }}" alt="Reference headshot" />
@@ -32,14 +32,19 @@
               : 'references-container__inactive'
           "
         >
-
-          <!-- Name of the person giving the current recommendation -->
+          <!-- Name and title of the person giving the current recommendation -->
           <div class="reference-name">
-            {{ reference.name }} <br />{{ reference.title }}
+            {{ reference.name }}
+          </div>
+          <div class="reference-title">
+            {{ reference.title }}
           </div>
 
           <!-- Text of the current recommendation -->
-          <div class="reference-contents" [innerHTML]="reference.recommendationText"></div>
+          <div
+            class="reference-contents"
+            [innerHTML]="reference.recommendationText"
+          ></div>
         </div>
       </ng-container>
     </div>

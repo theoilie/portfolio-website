@@ -39,9 +39,9 @@
     transition: opacity 1s ease-in-out;
 
     // Make the content stand out
-    -webkit-box-shadow: 0 0 5px 2px lightslategray;
-    -moz-box-shadow: 0 0 5px 2px lightslategray;
-    box-shadow: 0 0 5px 2px lightslategray;
+    -webkit-box-shadow: 0 0 3px 1px lightslategray;
+    -moz-box-shadow: 0 0 3px 1px lightslategray;
+    box-shadow: 0 0 3px 1px lightslategray;
     -moz-border-radius: 20px;
     -webkit-border-radius: 20px;
     border-radius: 20px;
@@ -88,12 +88,23 @@
 
 .reference-name {
   .row();
-
-  font-size: 10pt;
+  margin-top: 5px;
   text-align: center;
+  font-weight: bold;
+  font-size: 20pt;
   .responsiveMin(@screen-sizes[small], {
-    font-size: 15pt;
-    justify-content: center;
+    font-size: 24pt;
+  });
+}
+
+.reference-title {
+  .row();
+  text-align: center;
+  color: gray;
+  margin-bottom: 3%;
+  font-size: 15pt;
+  .responsiveMin(@screen-sizes[small], {
+    font-size: 18pt;
   });
 }
 
@@ -160,12 +171,12 @@
     width: 26%;
     height: 26%;
     .responsiveMin(@screen-sizes[small], {
-      width: 21%;
-      height: 21%;
+      width: 18%;
+      height: 18%;
     });
     .responsiveMin(@screen-sizes[extra-large], {
-      width: 16%;
-      height: 17%;
+      width: 14%;
+      height: 14%;
     });
   }
 
